@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <h1>Prueba</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quae obcaecati quaerat vero veniam ipsa ad dolor, iusto
+        libero voluptatibus tenetur.</p>
+        <button onclick="saludar()">Saludate</button>
+    <h1 onclick="alert('Hola mundo')">Pincha aquí para un hola mundo.</h1>
+    <h2 id="sandias">Sandias</h2>
+    <button onclick="desaparece()">Desaparecer sandias</button>
+</body>
+<script>
+    function saludar(){
+        alert("Hey Holaaaa");
+    }
+
+    function desaparece(){
+        document.getElementById("sandias").innerHTML = "";
+    }
+</script>
+</html>
