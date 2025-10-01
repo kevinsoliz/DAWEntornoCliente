@@ -10,3 +10,13 @@ function triangulo(filas){
 }
 
 triangulo(7);
+
+const roundTo = function(n, step) {
+  let resto = n % step;
+  return n - resto + (resto < step / 2 ? 0 : step);
+};
+
+console.log(roundTo(3.2, 0.5));
+a = 20;
+b = 2;
+console.log(a >> b);
