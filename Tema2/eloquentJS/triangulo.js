@@ -20,3 +20,8 @@ console.log(roundTo(3.2, 0.5));
 a = 20;
 b = 2;
 console.log(a >> b);
+
+let saludo = function(){
+    console.log("hello!");
+}
+console.log(saludo())
