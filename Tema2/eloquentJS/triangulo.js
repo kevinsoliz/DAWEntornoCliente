@@ -24,4 +24,4 @@ console.log(a >> b);
 let saludo = function(){
     console.log("hello!");
 }
-console.log(saludo())
+console.log(saludo());
