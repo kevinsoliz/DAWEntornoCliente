@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+      h1 {
+        text-align: center;
+        border: 1px solid rgb(193, 189, 189);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Actividad 2.17</h1>
+    <legend>Conversor de tiempo</legend>
+    <form>
+      <input type="number" id="dias" placeholder= "Días" />
+      <input type="number" id="horas" placeholder= "Horas" />
+      <input type="number" id="minutos" placeholder= "Minutos" />
+      <button type="button" onclick="conversorTiempo()">Convertir</button>
+      <input type="text" id="resultado" placeholder="Resultado" readonly />
+    </form>
+  </body>
+  <script>
+  function conversorTiempo() {
+    let dias = parseInt(document.getElementById("dias").value);
+    let horas = parseInt(document.getElementById("horas").value);
+    let minutos = parseInt(document.getElementById("minutos").value);
+    
+    let totalSegundos = (dias * 24 * 60 * 60) + (horas * 60 * 60) + (minutos * 60);
+    document.getElementById("resultado").value = totalSegundos + " segundos.";
+  }
+  </script>
+</html>

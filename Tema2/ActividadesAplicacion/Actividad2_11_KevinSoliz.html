@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Actividad 2.11</h1>
+  </body>
+  <script>
+    // El ámbito de let puede ser global, de bloque o de función, con var el ámbito solo es global o de
+    // función.
+    function testConLet() {
+      for (let i = 0; i < 10; i++) {
+        if (i % 2 === 0) {
+          let par = i;
+        }
+        console.log(par); // sale error porque par solo existe en el bloque if.
+      }
+    }
+    //testConLet();
+
+    // la misma función pero con var
+    function testConVar() {
+      for (var i = 0; i < 10; i++) {
+        if (i % 2 === 0) {
+          var par = i;
+        }
+        console.log(par); // no sale error porque par existe en toda la función gracias a var.
+      }
+    }
+    testConVar();
+
+    // var permite redeclarar variables, let no.
+    var x = 10;
+    var x = 5; // no hay error
+    console.log(x); //cogerá el último valor asignado, 5
+    let y = 10;
+    //let y = 20; // error, no se puede redeclarar
+
+    // En cuanto a const, es una variable cuyo valor no puede cambiar. Y su alcance es similar al de let.
+    const PI = 3.14;
+    //PI = 2.5; // error, no se puede reasignar
+    console.log(PI);
+  </script>
+</html>

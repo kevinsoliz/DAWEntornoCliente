@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+      h1 {
+        text-align: center;
+        border: 1px solid rgb(193, 189, 189);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Actividad 2.20</h1>
+  </body>
+  <script>
+    let opcion;
+    do {
+      opcion = prompt(
+        "a) Área del triángulo \nb) Áreal del rectángulo \nc) Área del círculo \nd) Salir"
+      );
+      switch(opcion){
+        case "a":
+          let base = parseFloat(prompt("Base:"));
+          let altura = parseFloat(prompt("Altura:"));
+          alert("Área = " + (base * altura) / 2);
+          break;
+        case "b":
+          let baseR = parseFloat(prompt("Base:"));
+          let alturaR = parseFloat(prompt("Altura:"));
+          alert("Área = " + (baseR * alturaR));
+          break;
+        case "c":
+          let radio = parseFloat(prompt("Radio:"));
+          alert("Área = " + (Math.PI * Math.pow(radio, 2)));
+          break;
+        case "d":
+          alert("Saliendo...");
+          break;
+        default:
+          alert("Opción no válida");
+          break;  
+      }
+    } while (opcion != "d");
+  </script>
+</html>

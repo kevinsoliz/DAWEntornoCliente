@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Actividad 2.14</h1>
+    <legend>Calculo de la letra de tu DNI</legend>
+    <form>
+      <input type="number" id="numeroDNI" step placeholder="Número DNI" maxlength="8" required />
+
+      <button type="button" onclick="calcular()">Calcular</button>
+
+      <input type="text" id="letraDNI" placeholder="y tu letra es..." readonly />
+    </form>
+  </body>
+  <script>
+    function calcular() {
+      let numeroDNI = document.getElementById("numeroDNI").value;
+      let letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
+      
+      let resto = parseFloat(numeroDNI) % 23;
+      let letraDNI = letras[resto];
+      document.getElementById("letraDNI").value = letraDNI;
+    }
+  </script>
+</html>

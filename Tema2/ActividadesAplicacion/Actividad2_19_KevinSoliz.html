@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+      h1 {
+        text-align: center;
+        border: 1px solid rgb(193, 189, 189);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Actividad 2.19</h1>
+    <h3>Números impares que no son múltiplo de 3 ni de 7:</h3>
+  </body>
+  <script>
+    document.write("Con while: <br>");
+    let num = 100;
+    while (num > 0) {
+      if (num % 2 == 1 && num % 3 != 0 && num % 7 != 0) {
+        document.write(num + ".. ");
+      }
+      num--;
+    }
+    document.write("<br><br>");
+    document.write("Con do-while: <br>");
+    num = 100;
+    do {
+      if (num % 2 == 1 && num % 3 != 0 && num % 7 != 0) {
+        document.write(num + ".. ");
+      }
+      num--;
+    } while (num > 0);
+    document.write("<br><br>");
+
+    document.write("Con for: <br>");
+    for (let i = 100; i > 0; i--) {
+      if (i % 2 == 1 && i % 3 != 0 && i % 7 != 0) {
+        document.write(i + ".. ");
+      }
+    }
+  </script>
+</html>

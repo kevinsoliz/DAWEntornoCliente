@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+      h1 {
+        text-align: center;
+        border: 1px solid rgb(193, 189, 189);
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Actividad 2.18</h1>
+  </body>
+  <script>
+    // Este es un juego de adivinar un número entre 1 y 10 usando un bucle do while:
+    let numeroSecreto = 5;
+    let numeroUsuario;
+    do {
+      numeroUsuario = parseInt(prompt("Adivina el número entre 1 y 10"));
+    } while (numeroUsuario !== numeroSecreto);
+    alert("Sí ese era el número!"); // Con do while el bucle se ejecuta al menos una vez y esto es apropiado porque el usuario tiene que introducir un número al menos una vez.
+
+    // Ahora si usamos un bucle while:
+    let numeroSecreto2 = 3;
+    let numeroUsuario2 = parseInt(prompt("Adivina el número entre 1 y 10"));
+    while (numeroUsuario2 !== numeroSecreto2) {
+      numeroUsuario2 = parseInt(prompt("Adivina el número entre 1 y 10")); //Repetimos código y eso quita claridad al script.
+    }
+    alert("Sí ese era el número!");
+  </script>
+</html>
