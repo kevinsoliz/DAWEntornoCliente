@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+      h1 {
+        text-align: center;
+        border: 1px solid rgb(193, 189, 189);
+        border-radius: 20px;
+      }
+    </style>
+</head>
+<body>
+    <h1>Actividad propuesta 3.2</h1>
+</body>
+<script>
+    let colores = [
+        ["Naranja", "#F39C12"],
+        ["Lima", "#C0F312"],
+        ["Turquesa", "#12F3E5"],
+        ["Rosa", "#F312AF"],
+        ["Rojo", "#F31212"]
+    ]
+    console.log(colores);
+    
+
+    for(let i = 0; i < colores.length; i++){
+        for(let j = 0; j < 2; j++){
+           document.write(colores[i][j] + " ");
+        }
+        document.write("<br>");
+    }
+</script>
+</html>

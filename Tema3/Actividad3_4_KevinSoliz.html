@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad propuesta 3.4</h1>
+</body>
+<script>
+   
+   let equipos = [];
+   
+   
+   for(let i = 0; i < 10; i++){
+           equipos[i] = [];
+    }
+    
+    for(let i = 0; i < equipos.length; i++){
+        for(let j = 0; j < 9; j++){
+            equipos[i][j] = Math.floor(Math.random()*50);
+        }
+    }
+    
+    equipos[0][0] = "FC Barcelona";
+    equipos[1][0] = "FC Marianitas";
+    equipos[2][0] = "FC Butanero";
+    equipos[3][0] = "FC Cazador";
+    equipos[4][0] = "FC Valverde";
+    equipos[5][0] = "FC Cañizares";
+    equipos[6][0] = "FC San Franco";
+    equipos[7][0] = "FC Santiado";
+    equipos[8][0] = "FC Suecos";
+    equipos[9][0] = "FC Polainas";
+   
+
+   for (let equipo of equipos){
+    let datos = "";
+    for(let dato of equipo){
+        datos += dato + " "; 
+    }
+    console.log(datos);
+   }
+
+   //El equipo ganador será el que más partidos haya ganado: 
+   let partidosGanados = 0; 
+   let ganador = "";
+   for(let i = 0; i < equipos.length; i++){
+        if(equipos[i][3] > partidosGanados){ //La tercera columna recoge el numero de partidos ganados
+            partidosGanados = equipos[i][3]; 
+            ganador = equipos[i][0] //Asignamos el nombre ganador que se encuentra en la columna 0
+        }
+   }
+   console.log("El ganador: " + ganador + " Partidos ganados: " + partidosGanados);
+   document.write("El ganador: " + ganador + " Partidos ganados: " + partidosGanados);
+</script>
+</html>
