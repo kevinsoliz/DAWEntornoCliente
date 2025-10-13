@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad propuesta 3.5</h1>
+</body>
+<script>
+    let datos = new Array(10); 
+    
+    for(let i = 0; i < 10; i++){
+        let aleatorio = Math.floor(Math.random()*100);
+        if (aleatorio % 5 === 0){
+            datos[i] = aleatorio;
+        }
+        else {
+            i--;
+        }
+    }
+   console.log(datos);
+
+   
+    
+    while (datos[0] < 50){
+        let aleatorio = Math.floor(Math.random()*100);
+        
+        if (aleatorio % 5 === 0){
+            datos.shift();
+            datos.unshift(aleatorio);
+        }
+        console.log(datos[0]);
+    }
+
+    while (datos[datos.length - 1] >= 50){
+        let aleatorio = Math.floor(Math.random()*100);
+        
+        if (aleatorio % 5 === 0){
+            datos.pop();
+            datos.push(aleatorio);
+        }
+        console.log(datos[datos.length - 1])
+    }
+
+
+    console.log(datos);
+    document.write(datos);
+</script>
+</html>
