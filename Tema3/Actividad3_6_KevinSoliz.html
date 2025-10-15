@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad 3.6</h1>
+</body>
+<script>
+    let verdades = [true, false, true, false, true, true, true, false, false, true];
+    
+    //let indices = [];
+    let contador = 0;
+    // while(verdades.indexOf(true, contador + 1) != -1){
+    //     indices[contador] = verdades.indexOf(true, contador);
+    //     contador++;
+    // }
+    // console.log(indices);
+
+      while (verdades.indexOf(true, contador) != -1){ // El bucle termina cuando ya no hay más trues.
+
+        contador = verdades.indexOf(true, contador); //Guardo la posición en la variable contador.
+
+        document.write(contador + " ");
+        console.log(contador);
+
+        contador++; //Sumamos uno para que indexOf tome la siguiente posición a la posición anterior
+                    //porque de otro modo nos devolvería la misma posición dos veces o el bucle seria infinito.
+
+    }
+
+</script>
+</html>
