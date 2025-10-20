@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad 3.9</h1>
+</body>
+<script>
+    const mapa = new Map([
+        ["Manzana", "Roja"],
+        ['Pera', 'Verde'],
+        ['Banana', 'Amarilla'],
+        ['Uva', 'Morada'],
+        ['Arándanos', 'Azul']
+    ]);
+    //console.log(mapa)
+    const valores = [];
+    for(let clave of mapa){
+        valores.push(clave[1]);
+    }
+    valores.sort();
+    console.log(valores)
+    for(let elemento of valores)
+        document.write(elemento + "<br>")
+</script>
+</html>

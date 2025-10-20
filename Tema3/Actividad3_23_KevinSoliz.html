@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad 3.23</h1>
+</body>
+<script>
+    let numeros = [];
+    for (let i = 0; i < 10; i++){
+        numeros[i] = Math.floor(Math.random() * 20);
+        document.write(numeros[i] + " ")
+    } 
+
+    let indices = [];
+
+   for(let i = 0; i < numeros.length; i++){
+        if(!estaDentro(numeros[i], indices)){
+            indices.push(i);
+        }
+   }
+
+   console.log(indices)
+
+    function estaDentro(elemento, array){
+        for (let numero of array){
+            if(numero === elemento){
+                return true;
+            }
+            return false;
+        }
+
+    }
+</script>
+</html>
