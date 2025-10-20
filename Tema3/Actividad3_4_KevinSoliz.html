@@ -19,7 +19,27 @@
     
     for(let i = 0; i < equipos.length; i++){
         for(let j = 0; j < 9; j++){
-            equipos[i][j] = Math.floor(Math.random()*50);
+            equipos[i][0] = "";
+
+            let partidosJugados = Math.floor(Math.random() * 50) + 20; //para que los partidos jugados siempre sean mayores que 20.
+            equipos[i][2] = partidosJugados;
+
+            let partidosGanados = Math.floor(Math.random() * partidosJugados);
+            equipos[i][3] = partidosGanados;
+
+            let partidosEmpatados = Math.floor(Math.random() * (partidosJugados - partidosGanados));
+            equipos[i][4] = partidosEmpatados;
+
+            let partidosPerdidos = partidosJugados - (partidosGanados + partidosEmpatados);
+            equipos[i][5] = partidosPerdidos;
+            //Goles a favor y goles en contra:
+            equipos[i][6] = Math.floor(Math.random() * 30) + 20; // para que los goles siempre sean mayores de 20
+            equipos[i][7] = Math.floor(Math.random() * 30) + 20;
+
+            let puntos = 3 * partidosGanados + partidosEmpatados;
+            equipos[i][1] = puntos;
+
+
         }
     }
     
@@ -43,17 +63,17 @@
     console.log(datos);
    }
 
-   //El equipo ganador será el que más partidos haya ganado: 
-   let partidosGanados = 0; 
+   //El equipo ganador será el que más puntos tenga:
+   let puntosMax = 0;
    let ganador = "";
    for(let i = 0; i < equipos.length; i++){
-        if(equipos[i][3] > partidosGanados){ //La tercera columna recoge el numero de partidos ganados
-            partidosGanados = equipos[i][3]; 
+        if(equipos[i][3] > puntosMax){ //La tercera columna recoge el numero de partidos ganados
+            puntosMax = equipos[i][3];
             ganador = equipos[i][0] //Asignamos el nombre ganador que se encuentra en la columna 0
         }
    }
-   console.log("El ganador: " + ganador + " Partidos ganados: " + partidosGanados);
-   document.write("El ganador: " + ganador + " Partidos ganados: " + partidosGanados);
+   console.log("El ganador: " + ganador + " Puntos: " + puntosMax);
+   document.write("El ganador: " + ganador + " Puntos: " + puntosMax);
    console.table(equipos);
 </script>
 </html>
