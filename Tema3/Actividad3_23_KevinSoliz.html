@@ -9,30 +9,30 @@
     <h1>Actividad 3.23</h1>
 </body>
 <script>
+    document.write("Array base: ")
     let numeros = [];
     for (let i = 0; i < 10; i++){
-        numeros[i] = Math.floor(Math.random() * 20);
+        numeros[i] = Math.floor(Math.random() * 50);
         document.write(numeros[i] + " ")
-    } 
-
-    let indices = [];
-
-   for(let i = 0; i < numeros.length; i++){
-        if(!estaDentro(numeros[i], indices)){
-            indices.push(i);
-        }
-   }
-
-   console.log(indices)
-
-    function estaDentro(elemento, array){
-        for (let numero of array){
-            if(numero === elemento){
-                return true;
-            }
-            return false;
-        }
-
     }
+    document.write("<br>")
+
+let sinRepetidos = [];
+let indicesRepetidos = [];
+
+
+for(let i = 0; i < numeros.length; i++){
+    if(!sinRepetidos.includes(numeros[i])){
+        sinRepetidos.push(numeros[i]);
+    }
+    else {
+        indicesRepetidos.push(i);
+    }
+    
+}
+let cantidadRepetidos = numeros.length - sinRepetidos.length;
+document.write("Cantidad repetidos: " + cantidadRepetidos + "<br>");
+document.write("Índices: " + indicesRepetidos)
+    
 </script>
 </html>
