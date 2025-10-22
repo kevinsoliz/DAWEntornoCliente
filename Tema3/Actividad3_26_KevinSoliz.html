@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 3.26</h1>
+    </body>
+    <script>
+        //  document.write("Array base: ")
+        // let numeros = [];
+        // for (let i = 0; i < 10; i++){
+        //     numeros[i] = Math.floor(Math.random() * 50);
+        //     document.write(numeros[i] + " ")
+        // }
+        // document.write("<br>")
+
+        //  document.write("Array base 2: ")
+        // let numeros2 = [];
+        // for (let i = 0; i < 10; i++){
+        //     numeros2[i] = Math.floor(Math.random() * 50);
+        //     document.write(numeros2[i] + " ")
+        // }
+        // document.write("<br>")
+
+        let numeros = [1, 2, 3, 5];
+        let numeros2 = [1, 2, 3, 5];
+
+        let iguales = false;
+        let contador = 0;
+
+        if(numeros.length === numeros2.length){
+            iguales = true;
+        
+             while(iguales || contador < numeros.length){
+                if(!numeros.includes(numeros2[contador])){
+                    iguales = false;
+                }
+                contador++;
+            }       
+        } 
+
+        let comprobacion = iguales ? "Contienen los mismos elementos." : "No contienen los mismos elementos."
+        console.log(comprobacion);
+    </script>
+</html>

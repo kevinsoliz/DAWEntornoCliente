@@ -6,7 +6,7 @@
         <title>Document</title>
     </head>
     <body>
-        <h1>Actividad 3.23</h1>
+        <h1>Actividad 3.24</h1>
     </body>
     <script>
         document.write("Array base: ")
@@ -17,22 +17,10 @@
         }
         document.write("<br>")
 
-    let sinRepetidos = [];
-    let indicesRepetidos = [];
-
-
-    for(let i = 0; i < numeros.length; i++){
-        if(!sinRepetidos.includes(numeros[i])){
-            sinRepetidos.push(numeros[i]);
+        let copia = [];
+        for (let elemento of numeros){
+            copia.push(elemento);
         }
-        else {
-            indicesRepetidos.push(i);
-        }
-        
-    }
-    let cantidadRepetidos = numeros.length - sinRepetidos.length;
-    document.write("Cantidad repetidos: " + cantidadRepetidos + "<br>");
-    document.write("Índices: " + indicesRepetidos)
-        
+        document.write("Copia: " + copia)
     </script>
 </html>

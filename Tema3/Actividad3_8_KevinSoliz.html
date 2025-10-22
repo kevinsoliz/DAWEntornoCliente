@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Actividad 3.8</h1>
-</body>
-<script>
-    const personas = new Map([
-        ["34331258D", "Kevin"],
-        ["19827390A", "Juan"],
-        ["48937527B", "Salmón"],
-        ["10938781C", "Gerbancio"],
-        ["19873987G", "Homer"],
-        ["09873189Y", "Sansón"],
-        ["09817109Z", "Sandra"],
-        ["09871373W", "Maribel"],
-        ["48208939P", "Adrián"],
-        ["23283819Q", "Pedro"]
-    ]);
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 3.8</h1>
+    </body>
+    <script>
+        const personas = new Map([
+            ["34331258D", "Kevin"],
+            ["19827390A", "Juan"],
+            ["48937527B", "Salmón"],
+            ["10938781C", "Gerbancio"],
+            ["19873987G", "Homer"],
+            ["09873189Y", "Sansón"],
+            ["09817109Z", "Sandra"],
+            ["09871373W", "Maribel"],
+            ["48208939P", "Adrián"],
+            ["23283819Q", "Pedro"]
+        ]);
 
 
-    for (let [dni,persona] of personas){
-        console.log(`${dni}: ${persona}`);
-        document.write(`${dni}: ${persona} <br>`); 
-    }
-    
-    personas.set("48937527B", "Salmón").set("48937527B", "Manuel");
+        for (let [dni,persona] of personas){
+            console.log(`${dni}: ${persona}`);
+            document.write(`${dni}: ${persona} <br>`); 
+        }
+        
+        personas.set("48937527B", "Salmón").set("48937527B", "Manuel");
 
-    console.log("Cambio de nombre:");
-    document.write("Cambio de nombre: <br>");
-    
-    for (let [dni,persona] of personas){
-        console.log(`${dni}: ${persona}`);
-        document.write(`${dni}: ${persona} <br>`); 
-    }
+        console.log("Cambio de nombre:");
+        document.write("Cambio de nombre: <br>");
+        
+        for (let [dni,persona] of personas){
+            console.log(`${dni}: ${persona}`);
+            document.write(`${dni}: ${persona} <br>`); 
+        }
 
-</script>
+    </script>
 </html>
