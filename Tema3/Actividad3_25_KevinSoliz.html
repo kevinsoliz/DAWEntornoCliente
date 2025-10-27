@@ -9,19 +9,49 @@
         <h1>Actividad 3.25</h1>
     </body>
     <script>
-        // document.write("Array base: ")
-        // let numeros = [];
-        // for (let i = 0; i < 10; i++){
-        //     numeros[i] = Math.floor(Math.random() * 50);
-        //     document.write(numeros[i] + " ")
-        // }
-        // document.write("<br>")
 
-        let numeros = [2, 2, 3, 5, 2, 4, 7, 4, 8];
-       
-        function maximo(a, b){
-            return a > b ? a : b;
+        document.write("Array base: ")
+
+        let numeros = [];
+
+        for (let i = 0; i < 10; i++){
+
+            numeros[i] = Math.floor(Math.random() * 15);
+            document.write(numeros[i] + " ")
         }
 
+        document.write("<br>")
+
+
+        let repeticiones = 0;
+        let repeticionesMax = 1; //Parto del 1 porque un elemento se repite al menso una vez.
+        let elementoMasRep = undefined; 
+        
+
+        for (let elemento of numeros){
+            
+            for(let otroElemento of numeros){
+
+                if(elemento === otroElemento){
+                    repeticiones++;
+                }
+            }
+
+            if(repeticiones > repeticionesMax){
+
+                repeticionesMax = repeticiones;
+                elementoMasRep = elemento;
+            }
+
+            repeticiones = 0;
+
+        }
+        
+
+        let mensaje = elementoMasRep != undefined ? "Elemento más repetido: " + elementoMasRep : "No se repite ningún elemento.";
+        let mensaje2 = repeticionesMax > 1 ? "Repeticiones: " + repeticionesMax : "";
+
+        document.write(mensaje + "<br>");
+        document.write(mensaje2 + "<br>");
     </script>
 </html>
