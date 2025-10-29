@@ -12,11 +12,45 @@
         let tablero = [
             ["x", "o", "x"],
             ["o", "x", "o"],
-            ["x", "x", "o"]
+            ["o", "x", "o"]
         ]    
 
         console.log(tablero);
 
+        let x = 0;
+        let o = 0;
+        let ganador = "";
+        
+        for(let i = 0; i < tablero.length; i++){
+            console.log("Fila: " + i)
+            for(let j = 0; j < tablero.length; j++){
+                if(tablero[i][j] === "x"){
+                    x++;
+                    console.log("cantidad de x: " + x);
+                }
+                else {
+                    o++;
+                    console.log("cantidad de o: " + o);
+                }
+
+            }
+
+            if(x === 3)
+                ganador = "x";
+            else if (o === 3)
+                ganador = "o";
+            else {
+                x = 0;
+                o = 0;
+            }
+
+        }
+
+        if (ganador === ""){
+            //La traspuesta y el bucle otra vez
+        }
+
+        console.log("ganador: " + ganador)
 
     </script>
 </html>
