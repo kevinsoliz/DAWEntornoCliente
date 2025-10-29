@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 3.34</h1>
+    </body>
+    <script>
+        let diccionario = new Map([
+            ["Hola", ["Hello", "Hallo", "Bonjour"]],
+            ["Por favor", ["Please", "Bitte", "S'il vous plaît"]],
+            ["Gracias", ["Thank you", "Danke", "Merci"]]
+        ])
+
+        for([castellano, [ingles, aleman, frances]] of diccionario){
+            document.write(castellano + ":... Inglés: " + ingles + "... Alemán: " + aleman + "... Francés: " + frances + "<br>");
+        }
+    </script>
+</html>

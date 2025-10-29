@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 3.32</h1>
+    </body>
+    <script>
+       const ciudades = new Map([
+            ["Madrid", [40.4168, -3.7038]],
+            ["Nueva York", [40.7128, -74.0060]],
+            ["Tokio", [35.6762, 139.6503]],
+            ["Ciudad del Cabo", [-33.9249, 18.4241]],
+            ["Sídney", [-33.8688, 151.2093]]
+        ]);
+
+        for (let [nombre, [lat, lon]] of ciudades) {
+            document.write(nombre + ": Latitud: " + lat + " Longitud: " + lon + "<br>");
+        }
+    </script>
+</html>

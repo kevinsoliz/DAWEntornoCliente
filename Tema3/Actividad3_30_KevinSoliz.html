@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 3.30</h1>
+    </body>
+    <script>
+        let followers = new Set();
+        //Añadimos cinco elementos: 
+        followers.add("Juan");
+        followers.add("Pedro");
+        followers.add("Macarronio");
+        followers.add("Maxiliano");
+        followers.add("Sócrates");
+
+        //Borramos dos: 
+        followers.delete("Juan");
+        followers.delete("Macarronio");
+
+        //Añadimos otros siete: 
+        followers.add("Parménides");
+        followers.add("Anaximandro");
+        followers.add("Platón");
+        followers.add("Pitágoras");
+        followers.add("Armando");
+        followers.add("Manuel");
+        followers.add("Lorena");
+
+        document.write("Seguidores: " + followers.size + "<br>");
+
+        for(seguidor of followers){
+            document.write(seguidor + '<br>');
+        }
+
+
+
+    </script>
+</html>

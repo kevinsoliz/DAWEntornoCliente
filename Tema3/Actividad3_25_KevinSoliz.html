@@ -28,22 +28,22 @@
         let elementoMasRep = undefined; 
         
 
-        for (let elemento of numeros){
+        for (let elemento of numeros){ //Realizo un bucle anidado con otro bucle para verificar cada elemento del array comparandolos con los elementos del mismo array.
             
             for(let otroElemento of numeros){
 
-                if(elemento === otroElemento){
+                if(elemento === otroElemento){ //Si hay coincidencia sumamos repeticiones.
                     repeticiones++;
                 }
             }
 
-            if(repeticiones > repeticionesMax){
+            if(repeticiones > repeticionesMax){ //Algoritmo básico para seleccionar las maximas repeticiones:
 
                 repeticionesMax = repeticiones;
                 elementoMasRep = elemento;
             }
 
-            repeticiones = 0;
+            repeticiones = 0; //Si no reseteamos repeticiones seguiria sumando y sumando.
 
         }
         
