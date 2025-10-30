@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,31 +10,31 @@
     </body>
     <script>
         let tablero = [
-            ["x", "o", "x"],
-            ["o", "x", "o"],
-            ["o", "x", "o"]
+            ["o", "o", "x"],
+            ["x", "x", "o"],
+            ["x", "o", "x"]
         ]    
 
         console.log(tablero);
 
+        //variables para contar la cantidad de x u o marcadas en el tablero, cuyo máximo será 3:
         let x = 0;
         let o = 0;
         let ganador = "";
-        
+        //Primero comprobamos cada fila:
         for(let i = 0; i < tablero.length; i++){
             console.log("Fila: " + i)
             for(let j = 0; j < tablero.length; j++){
-                if(tablero[i][j] === "x"){
+                if(tablero[i][j] === "x"){ //Si hay coincidencia sumamos 1.
                     x++;
-                    console.log("cantidad de x: " + x);
                 }
                 else {
                     o++;
-                    console.log("cantidad de o: " + o);
                 }
-
             }
-
+            console.log("cantidad de o: " + o);
+            console.log("cantidad de x: " + x);
+            //Si hay 3 caracteres del mismo tipo, se establece el ganador instantáneamente.
             if(x === 3)
                 ganador = "x";
             else if (o === 3)
@@ -45,12 +45,77 @@
             }
 
         }
-
+        //Si no hay ningún ganador aún verificamos las columnas:
         if (ganador === ""){
-            //La traspuesta y el bucle otra vez
+            //Debemos hacer la traspuesta del tablero para recorrer las filas otra vez:
+            let traspuesta = [];
+            //Inicializo el array asignando un array vacio como elemento.
+            for(let i = 0; i < 3; i++){
+                traspuesta [i] = [];
+            }
+            //Traspuesta:
+            for (let i = 0; i < tablero.length; i++){
+                for(let j = 0; j < tablero.length; j++){
+                    traspuesta[i][j] = tablero[j][i]; //Cambio las filas por las columnas.
+                }
+            }
+
+            //Recorremos las filas:
+            for(let i = 0; i < traspuesta.length; i++){
+                console.log("Columna: " + i)
+                for(let j = 0; j < traspuesta.length; j++){
+                    if(traspuesta[i][j] === "x"){ //Si hay coincidencia sumamos 1.
+                        x++;
+                    }
+                    else {
+                        o++;
+                    }
+                }
+                console.log("cantidad de x: " + x);
+                console.log("cantidad de o: " + o);
+                //Si hay 3 caracteres del mismo tipo, se establece el ganador instantáneamente.
+                if(x === 3)
+                    ganador = "x";
+                else if (o === 3)
+                    ganador = "o";
+                else {
+                    x = 0;
+                    o = 0;
+                }
+
+            }
+
+        }
+        //Si aún no tenemos ganador, debemos comprobar las dos diagonales:
+        if(ganador === ""){
+            console.log("Comprobando diagonales...")
+            if (tablero[0][0] === "x" &&
+                tablero[1][1] === "x" &&
+                tablero[2][2] === "x") {
+                ganador = "x";
+            }
+            else if(tablero[0][0] === "o" &&
+                    tablero[1][1] === "o" &&
+                    tablero[2][2] === "o") {
+                ganador = "o";
+            }
+            else if(tablero[0][2] === "x" &&
+                    tablero[1][1] === "x" &&
+                    tablero[2][0] === "x") {
+                ganador = "x";
+            }
+            else if(tablero[0][2] === "o" &&
+                    tablero[1][1] === "o" &&
+                    tablero[2][0] === "o") {
+                ganador = "o";
+            }
+            else
+                ganador = "Empatados";
+
         }
 
-        console.log("ganador: " + ganador)
+        console.log("GANADOR: " + ganador);
+
 
     </script>
 </html>
