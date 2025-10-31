@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 4.6</h1>
+    </body>
+    <script>
+        const maxVocales = (a, b) => {
+            const vocales = ["a", "e", "i", "o", "u"];
+            let vocalesA = 0;
+            let vocalesB = 0;
+            for (let elemento of a){
+                for(let vocal of vocales){
+                    if(elemento === vocal){
+                        vocalesA++;
+                    }
+                }
+            }
+            for (let elemento of b){
+                for(let vocal of vocales){
+                    if(elemento === vocal){
+                        vocalesB++;
+                    }
+                }
+            }
+            
+            let max = vocalesA > vocalesB ? a : b;
+
+            console.log("La cadena " + max + " tiene más vocales, con " + (vocalesA > vocalesB ? vocalesA : vocalesB) + " vocales.")
+        }
+        maxVocales("sandia", "berengena");
+    </script>
+</html>
