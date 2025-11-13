@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad propuesta 4.4</h1>
+    </body>
+    <script>
+       let invertida = function(cadena){
+           let cadenaInvertida = [];
+           for(let i = cadena.length - 1; i >= 0; i--){
+               cadenaInvertida[cadena.length - 1 - i] = cadena[i];
+           }
+
+           return cadenaInvertida.join('');
+       }
+       document.write("Palabra: programación <br>" )
+       document.write("Invertida: " + invertida("programación"));
+
+    </script>
+</html>

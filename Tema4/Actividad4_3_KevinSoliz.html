@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad propuesta 4.3</h1>
+    </body>
+    <script>
+        function adivina(){
+            let palabraSecreta = "sargento";
+            let output = [];
+            for(let i = 0; i < palabraSecreta.length; i++){
+                output[i] = "-";
+            }
+
+
+            for(let i = 0; i < arguments.length; i++){
+                for(let j = 0; j < palabraSecreta.length; j++){
+                    if(arguments[i] === palabraSecreta[j]){
+                        output[j] = arguments[i];
+                    }
+                }
+            }
+            return output;
+        }
+
+        console.log(adivina("a", "e", "i", "o", "u", "d", "n"));
+    </script>
+</html>

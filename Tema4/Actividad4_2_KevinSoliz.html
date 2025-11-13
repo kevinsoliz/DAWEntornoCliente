@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad propuesta 4.2</h1>
+    </body>
+    <script>
+        function jugar(ronda = 5){
+            let jugador1 = 0;
+            let jugador2 = 0;
+            for(let i = 0; i < ronda; i++){
+                jugador1 += lanzarDado();
+                jugador2 += lanzarDado();
+            }
+           let ganador = jugador1 > jugador2 ? "Jugador 1" : "Jugador 2";
+           document.write("Puntuaciones: <br>");
+           document.write("Jugador1: " + jugador1 + "<br>");
+           document.write("Jugador2: " + jugador2 + "<br>");
+           document.write("Ganador: " + ganador + "<br><br>");
+        }
+
+        function lanzarDado(){
+            return Math.floor(Math.random()*6)+1;
+        }
+
+        document.write("Primera partida: <br>");
+        jugar();
+        document.write("Segunda partida: <br>");
+        jugar(3);
+        document.write("Tercera partida: <br>");
+        jugar(4);
+
+    </script>
+</html>
