@@ -9,6 +9,28 @@
     <h1>Actividad 4.29</h1>
 </body>
 <script>
-   
+    let miArray = new Array(10);
+    function rellenaAleatorio(array) {
+       for (let i = 0; i < array.length; i++) {
+           array[i] = Math.floor(Math.random() * 100 + 1);
+       }
+       array.sort();
+       console.log(array);
+
+       let filtrado = array.filter( elemento => elemento % 10 === 0);
+
+       //Borro los elementos que terminan en cero del array original
+       for (let elemento of filtrado) {
+           let indice = array.indexOf(elemento);
+           array.splice(indice, 1);
+       }
+       console.log(array);
+       //Ahora los pongo al principio del array original creando un nuevo array con el filtrado y el original
+        let combinado = [...filtrado, ...array];
+       return combinado;
+
+    }
+    console.log(rellenaAleatorio(miArray));
+
 </script>
 </html>

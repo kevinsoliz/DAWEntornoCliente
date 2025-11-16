@@ -11,6 +11,11 @@
         <h1>Actividad 4.25</h1>
     </body>
     <script>
+        function letraDNI(numeroDNI) {
+            let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+            return letras[numeroDNI % 23];
+        }
 
+        console.log(`La letra de mi dni 34331258 es: ${letraDNI(34331258)}`);
     </script>
 </html>

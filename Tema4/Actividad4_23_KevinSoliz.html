@@ -12,8 +12,18 @@
     </body>
     <script>
         function esBisiesto (year) {
-            let siEs = false;
-            return siEs;
+            let esBisiesto = false;
+            if (year % 4 === 0) {
+                if (year % 100 !== 0) {
+                    esBisiesto = true;
+                }
+                else if(year % 400 === 0) {
+                    esBisiesto = true;
+                }
+            }
+            return esBisiesto;
         }
+
+
     </script>
 </html>

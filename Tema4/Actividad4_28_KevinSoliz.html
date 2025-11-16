@@ -9,14 +9,27 @@
     <h1>Actividad 4.28</h1>
 </body>
 <script>
+    let array1 = [
+        [1, 3, 4, 5],
+        [2, 4, 4, 3],
+        [1, 9, 0, 1],
+        [10, 5, 4, 5],
+    ]
+    let array2 = [
+        [9, 3, 2, 5],
+        [3, 2, 4, 5],
+        [5, 8, 1, 2],
+        [10, 7, 4, 4],
+    ]
+
     function buscaIguales(array1, array2) {
         let array3 = [];
         for (let i = 0; i < array1.length; i++) {
             array3[i] = [];
         }
 
-        for (let i = 0; i < array1.lenght; i++) {
-            for (let j = 0; j < array1.lenght; j++) {
+        for (let i = 0; i < array1.length; i++) {
+            for (let j = 0; j < array1.length; j++) {
                 if ( array1[i][j] === array2[i][j] ) {
                     array3[i][j] = array1[i][j];
                 }
@@ -29,6 +42,7 @@
         return array3;
     }
 
+    console.log(buscaIguales(array1, array2));
     
 </script>
 </html>
