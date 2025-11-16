@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad 4.28</h1>
+</body>
+<script>
+    function buscaIguales(array1, array2) {
+        let array3 = [];
+        for (let i = 0; i < array1.length; i++) {
+            array3[i] = [];
+        }
+
+        for (let i = 0; i < array1.lenght; i++) {
+            for (let j = 0; j < array1.lenght; j++) {
+                if ( array1[i][j] === array2[i][j] ) {
+                    array3[i][j] = array1[i][j];
+                }
+                else {
+                    array3[i][j] = 0;
+                }
+            }
+        }
+
+        return array3;
+    }
+
+    
+</script>
+</html>
