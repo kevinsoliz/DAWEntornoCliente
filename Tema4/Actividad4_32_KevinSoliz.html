@@ -17,9 +17,9 @@
         indice++;
       }
 
-      return indice === palabra1.length ? "Son iguales" : "No son iguales";
+      return indice === palabra1.length;
     }
 
-    console.log(sonIguales("frase", "fresa"));
+    console.log(sonIguales("frase", "fresa") ? "Son iguales" : "No son iguales");
   </script>
 </html>
