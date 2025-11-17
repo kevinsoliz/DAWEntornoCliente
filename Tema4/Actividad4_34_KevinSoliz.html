@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Actividad 4.34</h1>
+  </body>
+  <script>
+
+    function varianteFibo(numero) {
+      let resultado = 0;
+      if (numero < 2) {
+        resultado = 1;
+      }
+      else {
+        resultado = varianteFibo(numero - 1) + varianteFibo(numero - 2) + varianteFibo(numero - 3); //Sumamos los tres números anteriores
+      }
+      return resultado;
+    }
+   
+
+    for (let i = 0; i < 10; i++) {
+      console.log(varianteFibo(i));
+    }
+
+    
+  </script>
+</html>
