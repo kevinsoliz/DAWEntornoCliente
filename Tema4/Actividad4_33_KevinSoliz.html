@@ -15,7 +15,7 @@
 
         let pertenece = true;
         for (let caracter of palabra) {
-          if(caracter.localeCompare('a') < 0 || caracter.localeCompare('z') > 0) { //Si el caracter está fuera del rango no pertenece al alfabeto
+          if(caracter.localeCompare('a', 'es') < 0 || caracter.localeCompare('z', 'es') > 0) { //Si el caracter está fuera del rango no pertenece al alfabeto
             pertenece = false;
           }
 
