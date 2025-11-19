@@ -55,6 +55,7 @@
 
       return carton;
     }
+
     //Necesito esta función para desordenar el array combinado de los 12 ceros y los 20 números.
     function desordenar(array) {
         for ( let i = 0; i < array.length; i++) {
@@ -65,6 +66,46 @@
         }
     }
 
+  // El siguiente paso es crear una función que compruebe si el número de la bola coincide o no con algún número de un cartón.
+
+  function marcarCarton(carton, numBola) {
+
+    for(let i = 0; i < carton.length; i++) {
+      for(let j = 0; j < carton[i].length; j++){
+
+        if(carton[i][j] === numBola) {
+          carton[i][j] += 'X';
+        }
+
+      }
+    }
+
+  }
+
+  // 
+  let carton1 = crearCarton();
+  let carton2 = crearCarton();
+  let carton3 = crearCarton();
+  let carton4 = crearCarton();
+  let carton5 = crearCarton();
+
+  let bolas = arraySinRepetidos(90);
+
+  let contador = 0;
+  let bingo = false;
+  
+  while (!bingo){
+    
+  }
+
+    bolas.map( bola => marcarCarton(carton, bola));
+      
+
+
+  comprobar(carton, bolas)
+
+  console.table(carton)
+  
 
   </script>
 </html  >
