@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Actividad 4.36</h1>
+  </body>
+  <script>
+    //Primero necesito una función para sacar números aleatorios, pero que no se repitan.
+    function arraySinRepetidos(n) {
+      let sinRepetidos = [];
+
+      for (let i = 0; i < n; i++) {
+        let aleatorio = Math.floor(Math.random() * 90 + 1);
+        if(!sinRepetidos.includes(aleatorio)) { // Si el aleatorio no está dentro entonces lo incluimos en el array.
+          sinRepetidos[i] = aleatorio;
+        }
+        else {
+          i--; // Si el aleatorio ya ha salido antes, retrocedemos una iteración.
+        }
+      }
+      return sinRepetidos;
+    }
+
+    //Segunda función que cree un cartón con 20 números en una tabla de 8x4, 12 van a ser 0.
+    function crearCarton() {
+      let carton = [];
+      //Para inicializar el array bidimensional:
+      for (let i = 0; i < 8; i++) {
+        carton[i] = [];
+      }
+
+      //Los 20 números no pueden ser repetidos
+      let k = 0;
+      let sinRepetidos = arraySinRepetidos(20);
+
+      //Array de ceros
+      let arrayCeros = [];
+      for (let i = 0; i < 12; i++) {
+        arrayCeros[i] = 0;
+      }
+      //Mezclamos array de ceros con sinRepetidos:
+      let combinacion = [...arrayCeros, ...sinRepetidos];
+     desordenar(combinacion);
+
+      for (let i = 0 ; i < 8; i++) {
+        for (let j = 0; j < 4; j++) {
+            carton[i][j] = combinacion[k];
+            k++;
+        }
+      }
+
+      return carton;
+    }
+    //Necesito esta función para desordenar el array combinado de los 12 ceros y los 20 números.
+    function desordenar(array) {
+        for ( let i = 0; i < array.length; i++) {
+          let j = Math.floor(Math.random() * (array.length - i) + i);
+          let copia = array[i];
+          array[i] = array[j];
+          array[j] = copia;
+        }
+    }
+
+
+  </script>
+</html  >
