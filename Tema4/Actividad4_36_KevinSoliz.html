@@ -14,7 +14,7 @@
       let sinRepetidos = [];
 
       for (let i = 0; i < n; i++) {
-        let aleatorio = Math.floor(Math.random() * 90 + 1);
+        let aleatorio = Math.floor(Math.random() * 90) + 1;
         if(!sinRepetidos.includes(aleatorio)) { // Si el aleatorio no está dentro entonces lo incluimos en el array.
           sinRepetidos[i] = aleatorio;
         }
@@ -67,6 +67,7 @@
     }
 
   // El siguiente paso es crear una función que compruebe si el número de la bola coincide o no con algún número de un cartón.
+  //Si coincide lo marcamos
 
   function marcarCarton(carton, numBola) {
 
@@ -75,37 +76,82 @@
 
         if(carton[i][j] === numBola) {
           carton[i][j] += 'X';
+
         }
 
       }
     }
-
+   return contarMarcados(carton) === 20; // Este boleano servirá para gritar bingo.
   }
 
-  // 
+//Necesitaba una función que contase los marcados:
+  function contarMarcados(carton) {
+      let marcados = 0;
+      for (let filas of carton) {
+        for (let numero of filas) {
+          if(typeof numero === 'string') {
+            marcados++;
+          }
+        }
+      }
+      return marcados;
+  }
+
+
+
+  // El juego del bingo:
+
+  let bolas = arraySinRepetidos(90);
+  let bingo = false;
+
   let carton1 = crearCarton();
   let carton2 = crearCarton();
   let carton3 = crearCarton();
   let carton4 = crearCarton();
   let carton5 = crearCarton();
 
-  let bolas = arraySinRepetidos(90);
-
+  let bolasSacadas = [];
   let contador = 0;
-  let bingo = false;
-  
-  while (!bingo){
-    
-  }
+  let ganador = '';
+  let cartonGanador = [];
 
-    bolas.map( bola => marcarCarton(carton, bola));
-      
+ while (!bingo) {
+   bolasSacadas[contador] = bolas[contador];
+   if(marcarCarton(carton1, bolasSacadas[contador])) {
+     bingo = true;
+     ganador = 'Cartón 1';
+     cartonGanador = carton1;
+   }
+   if(marcarCarton(carton2, bolasSacadas[contador])) {
+     bingo = true;
+     ganador = 'Cartón 2';
+     cartonGanador = carton2;
+   }
 
+   if(marcarCarton(carton3, bolasSacadas[contador])) {
+     bingo = true;
+     ganador = 'Cartón 3';
+     cartonGanador = carton3;
+   }
+   if(marcarCarton(carton4, bolasSacadas[contador])) {
+     bingo = true;
+     ganador = 'Cartón 4';
+     cartonGanador = carton4;
+   }
+   if(marcarCarton(carton5, bolasSacadas[contador])) {
+     bingo = true;
+     ganador = 'Cartón 5';
+     cartonGanador = carton5;
+   }
 
-  comprobar(carton, bolas)
+   contador++
+ }
+ console.log('El ganador es: ' + ganador);
+ console.log('Cartón: ');
+ console.table(cartonGanador);
+ console.log('Números que han salido de las ' + bolasSacadas.length + ' bolas.');
+ console.log(bolasSacadas);
 
-  console.table(carton)
-  
 
   </script>
 </html  >
