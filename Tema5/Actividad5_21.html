@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 5.21</h1>
+    </body>
+    <script>
+        let matriz = new Object();
+        matriz.nFilas = 4;
+        matriz.nColumnas = 5;
+        matriz.contenido = [];
+        matriz.inicializarMatriz = function(valor) {
+            for (let i = 0; i < this.nFilas; i++) {
+                this.contenido[i] = []; //inicializo cada fila con un array vacío
+            }
+            for (let i = 0; i < this.nFilas; i++) {
+                for(let j = 0; j < this.nColumnas; j++){
+                    this.contenido[i][j] = valor;
+                }
+            }
+        }
+
+        matriz.aleatorioMatriz = function () {
+            this.inicializarMatriz(0);
+            for (let i = 0; i < this.nFilas; i++) {
+                for(let j = 0; j < this.nColumnas; j++){
+                    this.contenido[i][j] = Math.floor(Math.random() * 100) + 1;
+                }
+            }
+        }
+        matriz.verMatriz = function() {
+            console.table(this.contenido);
+        }
+
+       matriz.inicializarMatriz('M');
+        matriz.verMatriz();
+        matriz.aleatorioMatriz();
+        matriz.verMatriz();
+
+    </script>
+</html>

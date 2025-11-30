@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 5.19</h1>
+    </body>
+    <script>
+        class Telefono {
+            constructor(numero, codigoPais){
+                this.numero = numero;
+                this.codigoPais = codigoPais;
+            }
+
+            llamar() {
+                console.log('LLamando...');
+            }
+            colgar() {
+                console.log('Colgando...');
+            }
+        }
+        class Fijo extends Telefono {
+            tono = '';
+            constructor(numero, codigoPais, tono) {
+                super(numero, codigoPais);
+                this.tono = tono;
+            }
+            llamar() {
+                console.log('Llamando desde mi fijo...');
+            }
+        }
+        class Movil extends Telefono {
+            marca = '';
+            constructor(numero, codigoPais, marca){
+                super(numero, codigoPais);
+                this.marca = marca;
+            }
+            llamar() {
+                console.log('Llamando desde mi móvil');
+            }
+        }
+
+
+        let fijo = new Fijo(928723, 29, 'Classic');
+        fijo.llamar();
+        movil = new Movil(633898, 34, 'samsung');
+        movil.llamar();
+    </script>
+</html>

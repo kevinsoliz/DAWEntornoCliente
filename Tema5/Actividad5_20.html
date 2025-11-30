@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 5.20</h1>
+    </body>
+    <script>
+    class Aula {
+        constructor(numero, aforo){
+            this.numero = numero;
+            this.aforo = aforo;
+        }
+        ocuparAula() {
+            console.log('Se está impartiendo clase en esta aula...');
+        }
+    }
+
+    class Musica extends Aula {
+        profesor = '';
+        constructor(numero, aforo, profesor) {
+            super(numero, aforo);
+            this.profesor = profesor;
+        }
+        ocuparAula() {
+            console.log(`El profesor ${this.profesor} está impartiendo clases de música.`);
+        }
+    }
+
+    class Tecnologia extends Aula {
+        usarOrdenadores = false;
+        constructor(numero, aforo, usarOrdenadores) {
+            super(numero, aforo);
+            this.usarOrdenadores = usarOrdenadores;
+        }
+
+        ocuparAula() {
+            let mensaje = this.usarOrdenadores ?
+                'La clase de tecnología está ocupada y se están usando los ordenadores'
+                : 'La clase de tecnología está ocuapada pero no se están usando los ordenadores';
+            console.log(mensaje);
+        }
+    }
+
+    let musica = new Musica(25, 30, 'Rafael');
+    musica.ocuparAula();
+    let tecnologia = new Tecnologia(28, 30, true);
+    tecnologia.ocuparAula();
+    </script>
+</html>

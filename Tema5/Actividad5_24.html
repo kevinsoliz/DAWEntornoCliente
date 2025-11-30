@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 5.24</h1>
+    </body>
+    <script>
+        class Pelicula {
+            constructor(json) {
+                json = JSON.parse(json);
+                this.nombre = json.nombre;
+                this.anoEstreno = json.anoEstreno;
+                this.genero = json.genero;
+                this.actores = json.actores;
+                this.urlCartel = json.urlCartel;
+                this.director = json.director;
+            }
+
+            mostrarInfo() {
+                console.log(`Nombre: ${this.nombre}`);
+                console.log(`Años de estreno: ${this.anoEstreno}`);
+                console.log(`Género: ${this.genero}`);
+                console.log(`Actores: ${this.actores}`);
+                console.log(`URL del Cartel: ${this.urlCartel}`);
+                console.log(`Director: ${this.director}`);
+            }
+        }
+        let jsonInterestelar = `{
+          "nombre": "Interstellar",
+          "anoEstreno": 2014,
+          "duracion": 169,
+          "genero": "Ciencia ficción",
+          "actores": [
+            "Matthew McConaughey",
+            "Anne Hathaway",
+            "Jessica Chastain",
+            "Michael Caine",
+            "Casey Affleck",
+            "Matt Damon"
+          ],
+          "urlCartel": "https://en.wikipedia.org/wiki/Interstellar_%28film%29#/media/File:Interstellar_film_poster.jpg",
+          "director": "Christopher Nolan"
+        }`;
+
+
+        let peli = new Pelicula(jsonInterestelar);
+        peli.mostrarInfo();
+
+    </script>
+</html>

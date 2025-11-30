@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 5.25</h1>
+    </body>
+    <script>
+        const Fechas = new Object();
+        Fechas.difFechas = function (fecha1, fecha2) {
+            fecha1 = fecha1.getTime();
+            fecha2 = fecha2.getTime();
+            let resta = fecha1 > fecha2 ? fecha1 - fecha2 : fecha2 - fecha1;
+            let miliSegDia = 24 * 60 * 60 * 1000;
+            let dias = resta / miliSegDia;
+            return dias;
+        }
+
+       let f1 = new Date(2025, 10, 25);
+       let f2 = new Date(2025, 10, 30);
+
+       console.log(Fechas.difFechas(f1, f2));
+
+       Fechas.maxFecha = function (fecha1, fecha2) {
+           return fecha1.getTime() > fecha2.getTime() ? fecha1.toDateString() : fecha2.toDateString();
+       }
+
+       console.log(Fechas.maxFecha(f1, f2));
+
+       Fechas.testFecha = function(fecha) {
+           let formatoCorrecto = false;
+           let patron = /^\d{4}-\d{2}-\d{2}$/;
+           if(fecha instanceof Date || patron.test(fecha)) {
+               formatoCorrecto = true;
+           }
+          return formatoCorrecto;
+       }
+
+       console.log(Fechas.testFecha('2025-11-30'));
+
+       Fechas.ayerFecha = function (fecha) {
+           let miliSegDia = 24 * 60 * 60 * 1000;
+           let resta = fecha.getTime() - miliSegDia;
+           let ayer = new Date(resta);
+           return ayer.toDateString();
+       }
+
+       console.log(Fechas.ayerFecha(f2));
+
+
+        Fechas.mananaFecha = function (fecha) {
+            let miliSegDia = 24 * 60 * 60 * 1000;
+            let suma = fecha.getTime() + miliSegDia;
+            let manana = new Date(suma);
+            return manana.toDateString();
+        }
+
+        console.log(Fechas.mananaFecha(f2));
+    </script>
+</html>

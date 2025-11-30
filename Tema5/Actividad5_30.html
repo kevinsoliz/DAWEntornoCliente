@@ -1,0 +1,27 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+  </head>
+  <body>
+  <h1>Actividad 5.30</h1>
+  </body>
+  <script>
+      function escapeHTML(text) {
+          // No me quedo otra opción que usar el modificador g para que el reemplazo se diera en todas las coincidencias.
+          text = text.replace(/&/g, "&amp;");
+          text = text.replace(/"/g, "&quot;");
+          text = text.replace(/</g, "&lt;");
+          text = text.replace(/>/g, "&gt;");
+          return text;
+      }
+
+      console.log(escapeHTML('Hola Mundo && Planeta, 2 > 3, eso es "false"'));
+
+
+  </script>
+</html>

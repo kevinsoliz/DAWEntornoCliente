@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Actividad 5.23</h1>
+    </body>
+    <script>
+        class Club {
+
+            constructor(anioFundacion = '', numSocios = '', nombreEstadio = '', ciudad = '', palmares = []) {
+                this.anioFundacion = anioFundacion;
+                this.numSocios = numSocios;
+                this.nombreEstadio = nombreEstadio;
+                this.ciudad = ciudad;
+                this.palmares = palmares;
+            }
+
+            verClub() {
+                console.log('Año de fundación:', this.anioFundacion);
+                console.log('Número de socios:', this.numSocios);
+                console.log('Nombre del estadio:', this.nombreEstadio);
+                console.log('Ciudad:', this.ciudad);
+
+                if (this.palmares.length === 0) {
+                    console.log('Sin títulos');
+                } else {
+                    console.log('Palmarés:');
+                    console.table(this.palmares);
+                }
+
+            }
+        }
+
+
+        let c1 = new Club();
+        let c2 = new Club(2000);
+        let c3 = new Club(2001, 4000);
+        let c4 = new Club(2020, 45000, 'Estadio La Roca');
+        let c5 = new Club(1900, 10000, 'Metropolitano', 'Madrid');
+        let c6 = new Club(1920, 30000, 'San Juan', 'Murcia', [['Copa del Rey', 2010], ['Champions', 2020]]);
+
+
+
+        c1.numSocios = 10000;
+        c1.ciudad = 'Totana';
+        c1.verClub();
+
+
+        c2.nombreEstadio = 'Montenegro';
+        c2.palmares.push(['Champions', 2018]);
+        c2.verClub();
+
+
+        c3.ciudad = 'Asturias';
+        c3.verClub();
+
+
+        c4.numSocios = 50000;
+        c4.palmares.push(['Copa del Rey', 2023]);
+        c4.verClub();
+
+
+        c5.palmares = [['Champions', 2019], ['Europa League', 2025]];
+        c5.verClub();
+
+
+        c6.nombreEstadio = 'Torrejones';
+        c6.verClub();
+
+        //Los datos son perfectamente coherentes, los valores de los parámetros del constructor se inicializan correctamente
+        // y solo cambian cuando la propiedad se modifica específicamente gracias al uso del objeto this que hace referencia al objeto actual, en nuestro caso a un club en concreto.
+
+    </script>
+</html>
