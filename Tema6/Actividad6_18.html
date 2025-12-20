@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table, tr, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 3px 100px;
+    }
+  </style>
+  <body>
+    <h1>Actividad 6.18</h1>
+    <table>
+      <tr>
+        <th>Tabla</th>
+      </tr>
+      
+    </table>
+    <br>
+    <button>Nueva Fila</button>
+  </body>
+  <script>
+    let contador = 1;
+
+   let boton = document.querySelector('button');
+   boton.addEventListener('click', () => {
+
+      let tabla = document.querySelector('table');
+      
+      let fila = document.createElement('tr');
+      tabla.appendChild(fila);
+
+      let celda = document.createElement('td');
+      fila.appendChild(celda);
+
+      celda.innerText = 'Fila' + contador;
+      
+      contador++;
+
+   })
+  </script>
+</html>

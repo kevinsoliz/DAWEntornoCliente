@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Actividad 6.17</h1>
+    <ol>
+      <li>Pedro</li>
+      <li>Juan</li>
+      <li>María</li>
+      <li>Laura</li>
+      <li>Nostradamus</li>
+    </ol>
+    <h5>Primero: </h5>
+    <p id="primero"></p>
+    <h5>Segundo: </h5>
+    <p id="segundo"></p>
+  </body>
+  <script>
+    let lista = document.querySelector('ol');
+
+    let primero = document.getElementById('primero');
+    primero.textContent = lista.firstElementChild.textContent;
+
+    let segundo = document.getElementById('segundo');
+    segundo.textContent = lista.lastElementChild.textContent;
+    
+  </script>
+</html>

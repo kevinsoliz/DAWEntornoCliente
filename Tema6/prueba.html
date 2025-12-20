@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let mensaje = window.prompt('Cantidad de pixeles');
+    if(mensaje !== null) {
+        console.log('El user ha aceptado');
+        let confir = window.confirm('Are you sure?');
+        if(confir === false) {
+            console.log('El user no esta seguro')
+        }
+
+        else {
+            console.log('yeahhh');
+            let nuevaVentana = window.open('', '', 'width=400,height=400');
+            nuevaVentana.resizeBy(mensaje, mensaje);
+
+       
+            console.log(`Ventana redimensionada ${mensaje}x${mensaje}px`)
+            console.log(
+  nuevaVentana.innerWidth,
+  nuevaVentana.innerHeight
+);
+
+        }
+    }
+    else {
+        console.log('cancelado')
+    }
+</script>
+</html>
