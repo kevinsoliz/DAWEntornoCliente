@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            table, tr, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <label for="filas">Filas</label>
+            <input type="text" id="filas">
+            <br>
+            <label for="columnas">Columnas</label>
+            <input type="text" id="columnas">
+            <br>
+            <input type="button" onclick="crearTabla()" value="Crear tabla">
+            <table></table>
+        </form>
+    </body>
+    <script>
+        
+        function crearTabla() {
+
+            let numFilas = document.getElementById('filas').value;
+            let numColumnas = document.getElementById('columnas').value;
+            let tabla = document.querySelector('table');
+
+            for(let i = 0; i < numFilas; i++) {
+                let fila = document.createElement('tr');
+                tabla.appendChild(fila);
+    
+                for(let j = 0; j < numColumnas; j++){
+                    let columna = document.createElement('td');
+                    columna.textContent = Math.floor(Math.random() * 50);
+                    fila.appendChild(columna);
+                }
+            }
+            let filasDetectadas = document.getElementsByTagName('tr').length;
+            let columnasDetectadas = document.getElementsByTagName('td').length / filasDetectadas;
+            console.log('Filas detectadas: ' + filasDetectadas)
+            console.log('Columnas detectadas: ' + columnasDetectadas)
+        }
+
+    </script>
+</html>

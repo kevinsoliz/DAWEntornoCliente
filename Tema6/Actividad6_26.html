@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>Patatas</li>
+      <li>Leche</li>
+      <li>Harina</li>
+      <li>Aceite</li>
+      <li>Zanahorias</li>
+      <li>Manzanas</li>
+      <li>Nueces</li>
+      <li>Chocolate</li>
+      <li>Limones</li>
+      <li>Romero</li>
+    </ul>
+    <p>¿Quieres ordenar la lista?</p>
+    <button onclick="ordenarLista()">Aceptar</button>
+    <button onclick="desordenarLista()">Cancelar</button>
+  </body>
+  <script>
+    let lista = [...document.querySelectorAll("li")];
+    lista = lista.map((li) => li.textContent);
+    console.log(lista);
+
+    function ordenarLista(){
+        let ordenada = lista.sort();
+        actualizarUl(ordenada);
+    }
+
+    function desordenarLista(){
+        desordenar(lista);
+        actualizarUl(lista);
+    }
+
+
+
+    
+    function actualizarUl(array){
+        let ul = document.querySelector('ul');
+        ul.innerHTML = '';
+        
+        for(let i = 0; i < array.length; i++) {
+            let li = document.createElement('li');
+            li.textContent = array[i];
+            ul.appendChild(li);
+        }
+    }
+
+    function desordenar(array) {
+      for (let i = 0; i < array.length; i++) {
+        let j = Math.floor(Math.random() * (array.length - i) + i);
+        let copia = array[i];
+        array[i] = array[j];
+        array[j] = copia;
+      }
+    }
+
+    
+  </script>
+</html>

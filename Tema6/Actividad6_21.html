@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div data-width="" data-height="" data-bordercolor="">caja</div>
+  </body>
+  <script>
+    let caja = document.querySelector("div");
+    let cajaFeatures = [];
+
+    cajaFeatures.push(prompt('Introduce el ancho:'));
+    cajaFeatures.push(prompt('Introduce el alto:'));
+    cajaFeatures.push(prompt('Introduce el color del borde:'));
+
+    caja.dataset.width = cajaFeatures[0];
+    caja.dataset.height = cajaFeatures[1];
+    caja.dataset.bordercolor = cajaFeatures[2];
+    
+    console.info(caja.dataset);
+
+    caja.style.width = caja.dataset.width + "px";
+    caja.style.height = caja.dataset.height + "px";
+    caja.style.border = "1px solid " + caja.dataset.bordercolor;
+
+  </script>
+</html>

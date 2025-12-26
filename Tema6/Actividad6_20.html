@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Ingredientes</h1>
+    <ul></ul>
+  </body>
+  <script>
+    let lista = document.querySelector("ul");
+    let ingrediente;
+
+    do {
+      ingrediente = prompt("Introduce tu ingrediente"); // al cancelar se obtiene null
+
+      if(ingrediente != null) { 
+          let item = document.createElement("li");
+          item.textContent = ingrediente;
+          lista.appendChild(item);
+
+      }
+    } while (ingrediente != null);
+  </script>
+</html>
