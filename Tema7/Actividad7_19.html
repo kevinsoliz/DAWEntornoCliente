@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        .imagen {
+            width: 300px;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+    <body>
+        <div class="imagen">
+           
+        </div>
+    </body>
+    <script>
+        let contenedor = document.querySelector('div');
+
+        // document.querySelector('body').addEventListener('keydown', (evento) => {
+        //     if(evento.key === "0") {
+        //         contenedor.innerHTML = '';
+        //         let imagen0 = document.createElement('img');
+        //         imagen0.src = "images/0.jpg";
+        //         contenedor.appendChild(imagen0);
+        //     }
+        //     if(evento.key === "1") {
+        //         contenedor.innerHTML = '';
+        //         let imagen0 = document.createElement('img');
+        //         imagen0.src = "images/1.jpg";
+        //         contenedor.appendChild(imagen0);
+        //     }
+        // })
+
+        // Aunque lo hiciese con switch seguiría repitiendo código. Con map ahorro código.
+
+        const numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        
+        document.addEventListener('keydown', (evento) => {
+            numeros.map(numero => {
+                if (evento.key === numero) {
+                    contenedor.innerHTML = '';
+                    let imagen = document.createElement('img');
+                    imagen.src = `images/${numero}.jpg`;
+                    contenedor.appendChild(imagen);
+                }
+            })
+        })
+
+    </script>
+</html>

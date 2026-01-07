@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="width: 100px; height: 100px; background: rgb(247, 86, 86); position: relative"></div>
+    </body>
+    <script>
+
+        let caja = document.querySelector('div');
+        let arriba = 0;
+
+        document.addEventListener('keydown', (evento) => {
+            if (evento.key === "ArrowUp") {
+                console.log("arriba")
+                arriba -= 10;
+                caja.style.top = `${arriba}px`;
+            }
+        })
+
+        
+    </script>
+</html>
