@@ -11,14 +11,38 @@
     <script>
 
         let caja = document.querySelector('div');
-        let arriba = 0;
+        let x = 0;
+        let y = 0;
+
+        
 
         document.addEventListener('keydown', (evento) => {
-            if (evento.key === "ArrowUp") {
-                console.log("arriba")
-                arriba -= 10;
-                caja.style.top = `${arriba}px`;
+         
+
+            switch(evento.key) {
+                case "ArrowUp": {
+                    x -= 10;
+                    caja.style.top = `${x}px`;
+                }
+                break;
+                case "ArrowDown": {
+                    x += 10;
+                    caja.style.top = `${x}px`;
+                }
+                break;
+                case "ArrowLeft": {
+                    y += 10;
+                    caja.style.right = `${y}px`;
+                }
+                break;
+                case "ArrowRight": {
+                    y -= 10;
+                    caja.style.right = `${y}px`;
+                }
+                break;
+
             }
+
         })
 
         
