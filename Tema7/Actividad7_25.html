@@ -6,6 +6,49 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <div id="verde" style="width: 10px; height: 40px; background: rgb(20, 154, 163); position: relative;"></div>
+        <br>
+        <div id="roja" style="width: 10px; height: 40px; background: rgb(230, 56, 80); position: relative;"></div>
     </body>
+
+    <script>
+        let verde = document.getElementById('verde');
+        let roja = document.getElementById('roja')
+        
+        let anchoVerde = 10;
+        let anchoRoja = 10;
+
+        let ganador = '';
+
+        const ensanchar =  (evento) => {
+            switch(evento.key) {
+                case 'a':{
+                    anchoVerde += 5;
+                    verde.style.width = `${anchoVerde}px`
+                    break;
+                }
+                case 'ñ':{
+                    anchoRoja += 5;
+                    roja.style.width = `${anchoRoja}px`
+                    break;
+                }
+            } 
+
+            if (anchoVerde === 500 || anchoRoja === 500) {
+                document.removeEventListener('keydown', ensanchar);
+                ganador = anchoVerde === 500 ? 'GANA VERDE' : 'GANA ROJO';
+                console.log(ganador);
+
+                let mensaje = document.createElement('p');
+                mensaje.textContent = ganador;
+
+                
+                document.querySelector('body').appendChild(mensaje);
+            }
+        }
+
+        document.addEventListener('keydown', ensanchar);
+
+
+    </script>
 </html>
