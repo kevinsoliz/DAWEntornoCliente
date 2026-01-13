@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="width: 100px; height: 100px; background: dodgerblue; position: relative;"></div>
+    </body>
+    <script>
+        let caja = document.querySelector('div');
+        caja.addEventListener('mouseenter', () => {
+            //para que la caja no se salga de la pantalla, el rango de espacio disponible es la anchura y altura de la ventana menos la anchura, altura de la caja:
+            let x = Math.random() * (window.innerWidth - caja.offsetWidth);
+            let y = Math.random() * (window.innerHeight - caja.offsetHeight);
+
+            caja.style.left = x + 'px';
+            caja.style.top = y + 'px';
+        })
+       
+
+
+    </script>
+</html>

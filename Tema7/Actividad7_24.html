@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Lorem ipsum dolor, sit amet consectetur 
+            adipisicing elit. Laborum tenetur excepturi
+             ut eius dolorum officiis eligendi non nobis
+              doloribus nihil! Obcaecati, officia veritatis.
+               Illum aliquid libero in, quis eligendi sunt adipisci 
+               tempora id suscipit architecto nulla provident quae possimus
+                qui voluptatibus, quidem accusantium amet et modi quasi
+                 blanditiis quia quo consequuntur expedita! Laudantium 
+                 mollitia libero aperiam sint nemo quae ullam blanditiis 
+                 dolor quas. Eveniet quibusdam in quod quasi alias nulla 
+                 sequi repellat, iusto optio vel commodi minus? Ipsa 
+                  architecto eaque illo vitae qui dolor illum doloribus
+                   consequatur nulla ut porro, corrupti quaerat assumenda 
+                   nam recusandae cupiditate non quasi sapiente!</p>
+        <button>a</button>
+        <button>e</button>
+        <button>i</button>
+        <button>o</button>
+        <button>u</button>
+
+    </body>
+
+    <script>
+        let parrafo = document.querySelector('p');
+        let botones = document.querySelectorAll('button');
+
+        botones.forEach( boton => {
+            boton.addEventListener("click", () => {
+
+                let vocal = boton.textContent;
+                parrafo.textContent = parrafo.textContent.replace(vocal, '');
+            })
+
+        })
+    </script>
+</html>

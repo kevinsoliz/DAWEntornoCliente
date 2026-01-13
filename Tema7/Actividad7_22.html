@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p style="border: 1px solid black; width: 400px;  overflow-wrap: break-word"></p>
+        <button>Limpiar</button>
+
+    </body>
+    <script>
+        let parrafo = document.querySelector('p');
+        let btn = document.querySelector('button');
+
+        document.addEventListener('keypress', (evento) => {
+            parrafo.textContent += evento.key;
+        });
+
+        btn.addEventListener('click', () => {
+            parrafo.textContent = '';
+        });
+
+    </script>
+
+</html>

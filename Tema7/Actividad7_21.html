@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        img {
+            width: 10px;
+            display: inline-block;
+            margin: 0 2rem;
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    <body>
+        <h2>Lista</h2>
+        <ul></ul>
+        <input type="text" placeholder="Nuevo Elemento">
+        <button>Agregar</button>
+        <button id="ordenar">Ordenar</button>
+    </body>
+    <script>
+        let btn = document.querySelector('button');
+        
+        // btn.addEventListener('click', () => {
+        //     let input = document.querySelector('input').value;
+        //     let lista = document.querySelector('ul');
+        //       let item = document.createElement('li'); 
+        //       item.textContent = input;
+        //       lista.appendChild(item); 
+        // })
+        let lista = document.querySelector('ul');
+
+        //Agregar elementos:
+        btn.addEventListener('click', () => {
+            let input = document.querySelector('input').value;
+            lista.appendChild(crearElemento(input));
+            
+        })
+
+        function crearElemento(input) {
+            let item = document.createElement('li');
+            let aspa = document.createElement('img');
+            
+            item.textContent = input;
+            aspa.src = "images/close.png";
+
+            //Cada aspa tiene su evento propio:
+            aspa.addEventListener('click', () => {
+                item.remove();
+            })
+
+            item.appendChild(aspa);
+
+            return item;
+        }
+
+        //Ordenar lista:
+        let ordenar = document.getElementById('ordenar');
+
+        ordenar.addEventListener('click', () => {
+            let items = [...document.getElementsByTagName('li')];
+            console.log(items);
+
+            items.sort((a, b) => a.textContent.localeCompare(b.textContent));
+
+            for (item of items) {
+                lista.appendChild(item);
+            }
+        })
+        
+        
+    </script>
+</html>
