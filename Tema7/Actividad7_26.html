@@ -1,11 +1,84 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        
-    </body>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+  }
+
+  .cell {
+    width: 80px;
+    height: 80px;
+    border: 1px dashed #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box {
+    width: 70px;
+    height: 70px;
+  }
+
+  #caja1 { background: dodgerblue; }
+  #caja2 { background: rgb(30,255,143); }
+</style>
+
+</head>
+
+<body>
+   <div class="grid">
+  <div class="cell" data-pos="1"></div>
+  <div class="cell" data-pos="2"></div>
+  <div class="cell" data-pos="3"></div>
+  <div class="cell" data-pos="4"></div>
+  <div class="cell" data-pos="5"></div>
+  <div class="cell" data-pos="6"></div>
+  <div class="cell" data-pos="7"></div>
+  <div class="cell" data-pos="8"></div>
+  <div class="cell" data-pos="9"></div>
+</div>
+<script>
+     const caja1 = document.createElement('div');
+  caja1.id = "caja1";
+  caja1.className = "box";
+
+  const caja2 = document.createElement('div');
+  caja2.id = "caja2";
+  caja2.className = "box";
+  caja2.draggable = true;
+
+  // posiciones iniciales
+  const cells = document.querySelectorAll('.cell');
+  cells[4].appendChild(caja1); // centro
+  cells[5].appendChild(caja2); // derecha centro
+
+  caja2.addEventListener('dragstart', e => {
+    e.dataTransfer.setData("text/plain", "caja2");
+  });
+
+  cells.forEach(cell => {
+    cell.addEventListener('dragover', e => e.preventDefault());
+
+    cell.addEventListener('drop', e => {
+      const contenido = cell.firstChild;
+
+      if (contenido === caja1) {
+        // si cae encima -> empuje simple
+        // empujar caja1 a celda vacía más próxima
+        const vacia = [...cells].find(c => c.children.length === 0);
+        if (vacia) vacia.appendChild(caja1);
+      }
+
+      // mover caja2 siempre
+      cell.appendChild(caja2);
+    });
+  });
+</script>
+</body>
 </html>
