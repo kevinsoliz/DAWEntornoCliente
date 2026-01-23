@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Datos del vehículo</h1>
+
+    <button id="guardar">Guardar datos</button>
+    <button id="mostrar">Mostrar datos</button>
+
+    <div id="resultado"></div>
+  </body>
+  <script>
+    let guardar = document.getElementById("guardar");
+    let mostrar = document.getElementById("mostrar");
+    let resultado = document.getElementById("resultado");
+
+    const vehiculo = {
+      marca: "Lexus",
+      modelo: "ProMax",
+      numeroBastidor: "CHQ1234",
+      cilindrada: 1800,
+      numeroPuertas: 4,
+      color: "Rojo",
+      propietario: {
+        nombre: "Kevin",
+        apellidos: "Soliz Espinoza",
+        direccion: "Av Juan Carlos I 22",
+        telefono: "630198349",
+        email: "kevin@gmail.com",
+      },
+    };
+    console.log(vehiculo);
+
+    guardar.addEventListener("click", () => {
+      const vehiculoJson = JSON.stringify(vehiculo);
+
+      sessionStorage.setItem("vehiculo", vehiculoJson); //Session storage borrará la información al cerrar el navegador
+
+      resultado.innerHTML = "Datos guardados!";
+    });
+
+    mostrar.addEventListener("click", () => {
+      const vehiculoJSON = sessionStorage.getItem("vehiculo");
+
+      const vehiculo = JSON.parse(vehiculoJSON);
+
+      resultado.innerHTML = `
+        <p><strong>Marca:</strong> ${vehiculo.marca}</p>
+        <p><strong>Modelo:</strong> ${vehiculo.modelo}</p>
+        <p><strong>Número de Bastidor:</strong> ${vehiculo.numeroBastidor}</p>
+        <p><strong>Cilindrada:</strong> ${vehiculo.cilindrada} cc</p>
+        <p><strong>Número de Puertas:</strong> ${vehiculo.numeroPuertas}</p>
+        <p><strong>Color:</strong> ${vehiculo.color}</p>
+        <br/>
+        <h3>Propietario</h3>
+        <p><strong>Nombre:</strong> ${vehiculo.propietario.nombre}</p>
+        <p><strong>Apellidos:</strong> ${vehiculo.propietario.apellidos}</p>
+        <p><strong>Dirección:</strong> ${vehiculo.propietario.direccion}</p>
+        <p><strong>Teléfono:</strong> ${vehiculo.propietario.telefono}</p>
+        <p><strong>Email:</strong> ${vehiculo.propietario.email}</p>
+    `;
+    });
+  </script>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="" id="error">
+        <option value="EvalError">EvalError</option>
+        <option value="InternalError">InternalError</option>
+        <option value="RangeError">RangeError</option>
+        <option value="ReferenceError">ReferenceError</option>
+        <option value="SyntaxError">SyntaxError</option>
+        <option value="TypeError">TypeError</option>
+        <option value="URIError">URIError</option>
+    </select>
+    <button>Lanzar Error</button>
+    <br/><br/>
+    <input type="text" id="resultado" readonly />
+  </body>
+  <script>
+    let errorInput = document.getElementById("error");
+    let boton = document.querySelector("button");
+    let resultado = document.getElementById("resultado");
+    boton.addEventListener("click", lanzarError);
+
+    function lanzarError() {
+      const error = errorInput.value;
+      try {
+        switch (error) {
+          case "EvalError":
+            throw new EvalError("Esto es una EvalError.");
+            break;
+          case "InternalError":
+            throw new InternalError(
+              "Esto es una InternalError, puede que no funcione.",
+            );
+            break;
+          case "RangeError":
+            throw new RangeError("Aqui tienes una RangeError.");
+            break;
+          case "ReferenceError":
+            throw new ReferenceError("Referencia a un objeto no válida.");
+            break;
+          case "SyntaxError":
+            throw new SyntaxError("El código no es válido.");
+            break;
+          case "TypeError":
+            throw new TypeError("Tipo o parámetro no válido.");
+            break;
+          case "URIError":
+            throw new URIError("Esto es un URIError.");
+        }
+      } catch (error) {
+        resultado.style.color = "red";
+        resultado.style.width = "300px";
+        resultado.value = `Error: ${error.name}, ${error.message}`;
+      }
+    }
+  </script>
+</html>

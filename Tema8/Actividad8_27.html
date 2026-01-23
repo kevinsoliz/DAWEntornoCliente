@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="abrir">Abrir archivo</button>
+    <br>
+    <textarea id="caja" rows="10" cols="50" placeholder="El contenido aparecerá aquí. El formato puede ser .txt, .html, .css, .js, .md, .xml... etc, excepto .pdf, imágenes y videos"></textarea>
+  </body>
+  <script>
+    const brir = document.getElementById("abrir");
+    const caja = document.getElementById("caja");
+
+    //Necesitamos usar asyn y await porque la mayoría de los métodos de FyleSystem son asíncronos.
+
+    abrir.addEventListener("click", async () => {
+      // El selector de archivos devuelve un array de archivos
+      // al deconstruirlo cogemos el primero que por convención se llama fileHandle
+      const [fileHandle] = await window.showOpenFilePicker();
+
+      // Cogemos el fichero:
+      const fichero= await fileHandle.getFile();
+      // y leemos el contenido
+      const contenido = await fichero.text();
+
+      caja.value = contenido;
+    });
+  </script>
+</html>

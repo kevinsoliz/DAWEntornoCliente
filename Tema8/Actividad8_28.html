@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="600" height="600" style="border: 1px solid black;"></canvas>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    const lapiz = canvas.getContext("2d");
+
+    lapiz.fillStyle = "white";
+    lapiz.fillRect(0, 0, 600, 600);
+
+    lapiz.fillStyle = 'red';
+
+    const mitadX = 300;
+    const mitadY = 300;
+    
+    lapiz.beginPath();
+    lapiz.moveTo(mitadX, mitadY - 300);        
+    lapiz.lineTo(mitadX + 100, mitadY - 150);    
+    lapiz.lineTo(mitadX, mitadY);    
+
+    lapiz.lineTo(mitadX + 150, mitadY);            
+    lapiz.lineTo(mitadX + 300, mitadY + 150);
+    lapiz.lineTo(mitadX + 100, mitadY + 150);
+    
+    lapiz.lineTo(mitadX, mitadY);   
+    lapiz.lineTo(mitadX - 100, mitadY + 150);
+    lapiz.lineTo(mitadX - 300, mitadY + 150);
+    lapiz.lineTo(mitadX - 150, mitadY );
+
+    lapiz.lineTo(mitadX, mitadY);    
+    lapiz.lineTo(mitadX - 100, mitadY - 150);    
+    lapiz.closePath();
+    // lapiz.stroke();
+    lapiz.fill();
+  </script>
+</html>

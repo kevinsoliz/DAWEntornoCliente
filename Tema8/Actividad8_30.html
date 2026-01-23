@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="iniciar">Lanzar notificaciones</button>
+  </body>
+
+  <script>
+    const iniciar = document.getElementById("iniciar");
+
+    console.log("Permiso:", Notification.permission);
+
+    if (Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+
+    let intervalo = null; 
+
+    iniciar.addEventListener("click", () => {
+    //Para que se repita cada 30 segundos 
+      intervalo = setInterval(() => {
+        const notificacion = new Notification("Pincha aquí!");
+
+        notificacion.onclick = () => {
+          window.open("https://media.tenor.com/ZAMoMuQgf9UAAAAM/mapache-pedro.gif");
+          console.log("Enlace pinchado");
+
+          clearInterval(intervalo);
+        };
+
+        // Cerramos después de 5 segundos
+        setTimeout(() => {
+          notificacion.close();
+        }, 5000);
+
+      }, 30000); 
+
+    });
+  </script>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Divide</h1>
+    <label for="num1">Dividendo</label>
+    <input type="text" id="num1" />
+    <br />
+    <label for="num2">Divisor</label>
+    <input type="text" id="num2" />
+    <br /><br />
+    <button>Calcular</button>
+    <br />
+    <label for="resultado">Resultado</label>
+    <input type="text" id="resultado" readonly style="width: 500px" />
+  </body>
+  <script>
+    const num1 = document.getElementById("num1");
+    const num2 = document.getElementById("num2");
+    const resultado = document.getElementById("resultado");
+    const boton = document.querySelector("button");
+    boton.addEventListener("click", dividir);
+
+    let resultadoCalculado;
+
+    function dividir() {
+      try {
+        let dividendo = num1.value;
+        let divisor = num2.value;
+
+        if (dividendo === "" || divisor === "") {
+          //Lanzamos un aviso:
+          let mensaje = "Hay campos vacíos!";
+          console.warn(mensaje);
+          throw new Error(mensaje);
+        }
+        dividendo = parseFloat(dividendo);
+        divisor = parseFloat(divisor);
+
+        //Lanzamos excepciones:
+        if (isNaN(dividendo) || isNaN(divisor)) {
+          throw new Error("Los números deben ser válidos");
+        }
+        if (divisor === 0) {
+          throw new Error("No se puede dividir por cero!");
+        }
+
+        if (dividendo === 666) {
+          dividendo = null; 
+          //Provocamos un TypeError.
+          dividendo('santificar'); 
+        }
+
+        //Si todo es correcto:
+        resultadoCalculado = dividendo / divisor;
+        resultado.value = resultadoCalculado;
+
+      } catch (error) {
+        //Capturamos las excepciones:
+        resultado.style.color = "red";
+        resultado.value = "Excepción: " + error.message;
+
+        if (error instanceof TypeError) {
+            resultado.value = `Error:${error.name}, ${error.message} and it's going to hell!`;
+        }
+    
+      }
+    }
+  </script>
+</html>

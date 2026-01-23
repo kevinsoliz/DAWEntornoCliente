@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        console.log(conclusiones());
+        function conclusiones() {
+
+            try {
+                throw new Error('Capturado con catch.')
+                return 'Return del bloque try';
+            } catch(error) {
+               return `Return del bloque catch: ${error.message}`;
+            } finally {
+                return 'Conclusiones: El bloque finally siempre se ejecuta, a pesar de que el catch haya capturado un error y el bloque try tenga un return, el return del finally prevalece sobre todos siendo el único valor retornado de la función.'
+            }
+        }
+    </script>
+</html>
