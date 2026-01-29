@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Crear promesa</button>
+    <div id="contenedor"></div>
+  </body>
+  <script>
+  let crearPromesa = () => {
+
+        return new Promise((exito) => {
+            setTimeout(() => {
+                exito('Promesa resuelta.');
+            }, 2000);
+        });
+    };
+
+    let boton = document.querySelector('button');
+    let div = document.getElementById('contenedor');
+
+    boton.addEventListener('click', () => {
+        crearPromesa()
+            .then((resultado) => {
+                let texto = document.createElement('h1');
+                texto.textContent = resultado;
+                contenedor.appendChild(texto);
+
+                let caja = document.createElement('div');
+                caja.style.width = "100px";
+                caja.style.height = "100px";
+                caja.style.background = "dodgerblue"
+                caja.style.margin = "10px";
+                contenedor.appendChild(caja);
+        
+            })
+            .then(() => {
+       
+                let texto2 = document.createElement('p');
+                texto2.textContent = 'Esta es la acción 2';
+                contenedor.appendChild(texto2);
+ 
+            })
+            .then(() => {
+
+                let circulo = document.createElement('div');
+                circulo.style.width = "100px";
+                circulo.style.height = "100px";
+                circulo.style.borderRadius = "50%";
+                circulo.style.background = "dodgerblue";
+    
+               contenedor.appendChild(circulo);
+            });
+    });
+  </script>
+</html>

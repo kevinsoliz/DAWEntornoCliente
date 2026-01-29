@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise.all() - Ejemplo</title>
+</head>
+<body>
+    <h1>Abre la consola (F12)</h1>
+
+    <script>
+        console.log("Iniciando promesas...");
+
+        let pro1 = new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("Pro1 terminada");
+                resolve("Promesa 1: hecho.");
+            }, 1000);
+        });
+
+        let pro2 = new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("Pro2 terminada");
+                resolve("Promesa 2: hecho.");
+            }, 2000);
+        });
+
+        let pro3 = new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("Pro3 terminada");
+                resolve("Promesa 3: hecho.");
+            }, 500);
+        });
+
+        let pro4 = new Promise((resolve) => {
+            setTimeout(() => {
+                console.log("Pro4 terminada (la más lenta)");
+                resolve("Promesa 4: hecho.");
+            }, 5000);
+        });
+
+        let proTodas = Promise.all([pro1, pro2, pro3, pro4]);
+
+        proTodas.then(resultados => {
+            console.log("=== TODAS LAS PROMESAS COMPLETADAS ===");
+            for (let resultado of resultados) {
+                console.log(resultado);
+            }
+            console.log("Sincronizadas ✅");
+        });
+
+        console.log("Código síncrono terminado, esperando promesas...");
+    </script>
+</body>
+</html>

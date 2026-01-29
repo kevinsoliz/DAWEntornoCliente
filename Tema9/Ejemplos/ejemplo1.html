@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback Hell - Ejemplo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #2c3e50;
+        margin: 0;
+      }
+
+      .contenedor {
+        text-align: center;
+      }
+
+      .palabra {
+        font-size: 48px;
+        color: #ecf0f1;
+        margin: 20px 0;
+        /* INICIALMENTE INVISIBLE */
+        opacity: 0;
+        transform: translateY(-20px);
+        /* Sin transición por defecto */
+      }
+
+      /* Esta clase se añade con JavaScript */
+      .animar {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h2 class="palabra">¡Hola!</h2>
+      <h2 class="palabra">Callback</h2>
+      <h2 class="palabra">Hell</h2>
+    </div>
+
+    <script>
+      // Seleccionamos todas las palabras
+      let palabras = document.querySelectorAll(".palabra");
+
+      let animar = palabra => palabra.classList.add('animar');
+
+      let animarPalabras=(animar) => {
+        setTimeout(() => {
+
+            animar(palabras[0]);
+            setTimeout(() => {
+
+
+                animar(palabras[1]);
+                setTimeout(() => {
+
+                    animar(palabras[2]);
+
+                }, 500)
+
+
+            }, 300)
+
+        }, 100)
+      }
+
+      animarPalabras(animar);
+    //   // Función que añade la clase "animar" a una palabra
+    //   let animarPalabras = (palabra) => {
+    //     palabra.classList.add("animar");
+    //   };
+
+    //   // AQUÍ EMPIEZA EL "CALLBACK HELL"
+
+    //   // Animamos la primera palabra INMEDIATAMENTE
+    //   animarPalabras(palabras[0]);
+
+    //   // Después de 100ms, animamos la segunda palabra
+    //   setTimeout(() => {
+    //     animarPalabras(palabras[1]);
+
+    //     // Después de 300ms MÁS, animamos la tercera palabra
+    //     setTimeout(() => {
+    //       animarPalabras(palabras[2]);
+    //     }, 300);
+    //   }, 100);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button>Click aquí</button>
+        <p></p>
+    </body>
+    <script>
+       let esperarClick = () => {
+        return new Promise(exito => {
+            let boton = document.querySelector('button');
+            boton.addEventListener('click', exito);
+            
+        })
+       }
+
+       let esperarEnter = () => {
+        return new Promise(exito => {
+            document.addEventListener('keydown', evento => {
+                if (evento.key === 'Enter') {
+                    exito();
+                }
+            })
+        })
+       }
+
+
+       let mensaje = document.querySelector('p');
+
+
+       esperarClick().then(() => {
+        mensaje.textContent = 'Botón clicado. Ahora pulsa Enter.';
+        //al resolver lanzo directamente la promesa del enter
+        return esperarEnter();
+       }).then(() => {
+        mensaje.textContent = 'Patrón detectado.';
+       })
+    </script>
+</html>

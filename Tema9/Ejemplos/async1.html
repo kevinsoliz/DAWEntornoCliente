@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Función normal que devuelve un valor
+function saludar() {
+    return "Hola";
+}
+
+console.log(saludar()); // "Hola"
+
+// Función async que devuelve una promesa
+async function saludarAsync() {
+    return "Hola";
+}
+
+console.log(saludarAsync()); // Promise { "Hola" }
+
+// Para obtener el valor:
+saludarAsync().then(mensaje => {
+    console.log(mensaje); // "Hola"
+});
+</script>
+</html>

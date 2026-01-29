@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Recordatorios</h1>
+    <button onclick="iniciarRecordatorios()">Empezar</button>
+    <div id="notificaciones"></div>
+  </body>
+  <script>
+    function mostrarNotificacion(mensaje) {
+
+      let notificacion = document.createElement("div");
+      notificacion.textContent = mensaje;
+
+      document.getElementById("notificaciones").appendChild(notificacion);
+    }
+
+    function iniciarRecordatorios() {
+      document.getElementById("notificaciones").innerHTML = "";
+
+      setTimeout(() => {
+        mostrarNotificacion("Desayuno con Juan a las 9!");
+
+        setTimeout(() => {
+          mostrarNotificacion("Almuerzo de empresa a las 12.");
+
+          setTimeout(() => {
+            mostrarNotificacion("Comida con la familia a las 15:30.");
+
+            setTimeout(() => {
+              mostrarNotificacion("Gimnasio a las 18:30.");
+
+              setTimeout(() => {
+                mostrarNotificacion("Comprar un pollo entero para la comida de mañana antes de que cierre el mercadona.");
+              }, 3000);
+            }, 2500);
+          }, 2000);
+        }, 1500);
+      }, 1000);
+    }
+  </script>
+</html>
