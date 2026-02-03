@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      tr,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+        <tr>
+            <th>Persona</th>
+            <th>Planeta</th>
+            <th>Nave</th>
+        </tr>
+        <tr>
+            <td id="persona"></td>
+            <td id="planeta"></td>
+            <td id="nave"></td>
+        </tr>
+    </table>
+    <script>
+        let colPersona = document.getElementById("persona");
+        let colPlaneta = document.getElementById("planeta");
+        let colNave = document.getElementById("nave");
+
+
+      //Como son varias peticioes lo mejor es trabajar con funciones:
+      async function pedirDatos(url) {
+        const response = await fetch(url);
+        return await response.json();
+      }
+
+
+      function aHtml(respuesta) {
+        let html = "<ul>"
+        for (const clave in respuesta) {
+            html += `<li><strong>${clave}:</strong> ${respuesta[clave]}</li>`;
+        }
+        html += `</ul>`;
+        return html;
+      }
+
+
+
+        async function cargarDatos(){
+        const personaUrl = 'https://swapi.dev/api/people/1/';
+        const planetaUrl = 'https://swapi.dev/api/planets/1/';
+        const naveUrl = 'https://swapi.dev/api/starships/2/';
+
+        try {
+            const persona = await pedirDatos(personaUrl);
+            const planeta = await pedirDatos(planetaUrl);
+            const nave = await pedirDatos(naveUrl);
+
+            colPersona.innerHTML = aHtml(persona);
+            colPlaneta.innerHTML = aHtml(planeta);
+            colNave.innerHTML = aHtml(nave);
+            
+        } catch (error) {
+            console.error("Ha habido un error: " + error );
+        }
+      }
+
+      cargarDatos();
+    </script>
+  </body>
+</html>

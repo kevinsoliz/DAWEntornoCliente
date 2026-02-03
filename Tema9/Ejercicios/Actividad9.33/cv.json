@@ -1,0 +1,35 @@
+{
+  "nombre": "Kevin Soliz",
+  "edad": 28,
+  "ciudad": "Totana, Murcia",
+  "email": "kevin@gmai.com",
+  "telefono": "123456789",
+  "perfil": "Estudiante de Desarrollo de Aplicaciones Web",
+  "educacion": [
+    {
+      "titulo": "DAW - Desarrollo de Aplicaciones Web",
+      "institucion": "IES Miguel Hernández",
+      "año": "2024-2026"
+    },
+    {
+      "titulo": "Bachillerato",
+      "institucion": "IES Floridablanca",
+      "año": "2018-2020"
+    }
+  ],
+  "experiencia": [
+    {
+      "puesto": "Desarrollador Junior",
+      "empresa": "Moyca",
+      "periodo": "2026",
+      "descripcion": "Desarrollo de aplicaciones web con Angular"
+    },
+    {
+      "puesto": "Mozo de almacén",
+      "empresa": "Fruveco",
+      "periodo": "2023",
+      "descripcion": "Organización y gestión productos"
+    }
+  ],
+  "skills": ["HTML", "CSS", "JavaScript", "Java", "PHP", "React", "Git"]
+}

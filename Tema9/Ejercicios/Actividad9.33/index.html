@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>CV</h1>
+    <h2>Perfil</h2>
+    <ul id="perfil"></ul>
+    <h2>Educación</h2>
+    <ul id="educacion"></ul>
+    <h2>Experiencia laboral</h2>
+    <ul id="experiencia"></ul>
+    <h2>Skills</h2>
+    <ul id="skills"></ul>
+    <script>
+      let perfil = document.getElementById("perfil");
+      let educacion = document.getElementById("educacion");
+      let experiencia = document.getElementById("experiencia");
+      let skills = document.getElementById("skills");
+
+      const cargarCV = () => {
+        fetch("cv.json")
+          .then((respuesta) => respuesta.json())
+          .then((datos) => {
+            //Perfil
+            for (let clave in datos) {
+              //Cojo solo las propiedades que no tengan objetos
+              if (typeof datos[clave] != "object") {
+                let item = document.createElement("li");
+                item.innerText = `${clave}: ${datos[clave]}`;
+                perfil.appendChild(item);
+              }
+            }
+
+            // Educación
+            //Hay que iterar sobre cada objeto dentro del array educación
+            datos.educacion.forEach((edu) => {
+              educacion.innerHTML += `<li>Título: ${edu.titulo}</li>
+                                        <li>Institución: ${edu.institucion}</li>
+                                        <li>Año: ${edu.año}</li>`;
+            });
+
+            // Experiencia
+           datos.experiencia.forEach((ex) => {
+              experiencia.innerHTML += `<li>Título: ${ex.puesto}</li>
+                                        <li>Institución: ${ex.empresa}</li>
+                                        <li>Año: ${ex.periodo}</li>
+                                        <li>Año: ${ex.descripcion}</li>`;
+            });
+
+            // Skills
+            datos.skills.forEach(ex => {
+                skills.innerHTML += `<li>${ex}</li>`;
+            })
+          })
+          .catch((error) => {
+            contenido.innerHTML =
+              "<p>Error al cargar el currículum: " + error + "</p>";
+          });
+      };
+
+      cargarCV();
+    </script>
+  </body>
+</html>
