@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form id="buscador">
+            <input type="text">
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="resultados"></div>
+
+        <script>
+            let buscador = document.getElementById('buscador');
+            let input = document.querySelector('input');
+            let resultados = document.getElementById("resultados");
+
+            buscador.addEventListener('submit', (evento) => {
+                evento.preventDefault();
+
+                let datosIntroducidos = input.value;
+
+                if(datosIntroducidos) {
+
+                    buscar(datosIntroducidos)
+                        .then(productos => mostrarResultados(productos));
+                }
+            })
+
+            function buscar(datos) {
+                let respuesta = [];
+                
+                    let url = `https://api.mercadolibre.com/sites/MLM/search?q=${datos}`;
+
+                    respuesta = fetch(url)
+                        .then(res => res.json())
+                        .then(datos => datos.results.slice(0, 3))
+                        .catch(error => {
+                            console.log('Error: ', error);
+                            return []
+                        });
+
+
+                return respuesta;
+                
+            }
+
+
+            function mostrarResultados(productos) {
+                resultados.innerHTML = '';
+
+                //Por si no hay productos:
+                if(productos.length === 0) {
+                    resultados.textContent = "No se han encontrado productos."
+                }
+
+                productos.forEach(producto => {
+                    let productoDiv = document.createElement('div');
+        
+                    productoDiv.innerHTML = `
+                        <img src="${producto.thumbnail}" alt="${producto.title}">
+                        <h3>${producto.title}</h3>
+                        <p class="precio">$${producto.price}</p>
+                        <a href="${producto.permalink}" target="_blank">Ver producto</a>
+                    `;
+                    
+                   resultados.appendChild(productoDiv);
+                })
+            }
+            //La api bloquea 
+        </script>
+    </body>
+</html>
