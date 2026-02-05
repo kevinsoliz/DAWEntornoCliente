@@ -58,18 +58,12 @@
 
                 productos.forEach(producto => {
                     let productoDiv = document.createElement('div');
-        
-                    productoDiv.innerHTML = `
-                        <img src="${producto.thumbnail}" alt="${producto.title}">
-                        <h3>${producto.title}</h3>
-                        <p class="precio">$${producto.price}</p>
-                        <a href="${producto.permalink}" target="_blank">Ver producto</a>
-                    `;
+                    productoDiv.textContent = producto.title;
                     
                    resultados.appendChild(productoDiv);
                 })
             }
-            //La api bloquea 
+            //La api bloquea las peticiones, me sale error 403 forbidden, porque no tiene el cors habilitado para mi.
         </script>
     </body>
 </html>
