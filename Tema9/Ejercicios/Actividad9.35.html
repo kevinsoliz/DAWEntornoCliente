@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-rows: repeat(3, 200px);
+        grid-template-columns: repeat(3, 200px);
+      }
+      .celda {
+        border: 1px solid black;
+      }
+      img {
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Latte</h3>
+        <p>Cremoso</p>
+        <p>2.20€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Espresso</h3>
+        <p>Intenso</p>
+        <p>1.80€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Americano</h3>
+        <p>Suave</p>
+        <p>2.00€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Cappuccino</h3>
+        <p>Con espuma</p>
+        <p>2.50€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Mocha</h3>
+        <p>Con chocolate</p>
+        <p>3.00€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Macchiato</h3>
+        <p>Toque de leche</p>
+        <p>2.30€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Cortado</h3>
+        <p>Equilibrado</p>
+        <p>1.90€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Frappé</h3>
+        <p>Refrescante</p>
+        <p>3.50€</p>
+      </div>
+      <div class="celda">
+        <img class="producto-img" src="" alt="" />
+        <h3>Café Irish</h3>
+        <p>Especial</p>
+        <p>4.00€</p>
+      </div>
+    </div>
+    <script>
+      const imagenProd = document.querySelectorAll(".producto-img");
+
+      imagenProd.forEach((imagen) => {
+        //cojo la url de la imagen
+        pedirImagen().then((url) => {
+          imagen.src = url;
+        });
+      });
+
+      function pedirImagen() {
+        const url = "https://coffee.alexflipnote.dev/random";
+
+        let imagen = fetch(url)
+          .then((respuesta) => respuesta.json())
+          .then((datos) => {
+            return datos.file; //quiero solo la url
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+            return "";
+          });
+        return imagen;
+      }
+
+      //Esta API también bloquea las peticiones por lo del CORS
+    </script>
+  </body>
+</html>

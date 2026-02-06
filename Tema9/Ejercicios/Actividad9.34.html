@@ -32,7 +32,7 @@
             function buscar(datos) {
                 let respuesta = [];
                 
-                    let url = `https://api.mercadolibre.com/sites/MLM/search?q=${datos}`;
+                    let url = `https://api.mercadolibre.com/sites/MLA/search?q=${datos}`;
 
                     respuesta = fetch(url)
                         .then(res => res.json())
@@ -63,7 +63,7 @@
                    resultados.appendChild(productoDiv);
                 })
             }
-            //La api bloquea las peticiones, me sale error 403 forbidden, porque no tiene el cors habilitado para mi.
+            //La api bloquea las peticiones, me sale error 403 forbidden, porque no tiene el cors habilitado para mí.
         </script>
     </body>
 </html>

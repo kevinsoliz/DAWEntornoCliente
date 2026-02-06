@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="inputPais" placeholder="Spain" />
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div id="resultado"></div>
+  </body>
+  <script>
+    let formulario = document.querySelector("form");
+    let inputPais = document.querySelector("input");
+    let resultado = document.getElementById("resultado");
+
+    formulario.addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+
+      let nombrePais = inputPais.value;
+
+      if (nombrePais) {
+        let pais = await buscarPais(nombrePais);
+        mostrarPais(pais);
+      }
+    });
+
+    async function buscarPais(nombre) {
+      try {
+        const url = `https://restcountries.com/v3.1/name/${nombre}`;
+
+        let respuesta = await fetch(url);
+
+        //verifico que la respuesta sea correcta
+        if (!respuesta.ok) {
+          throw new Error("País no encontrado");
+        }
+
+        //Convertimos a json
+        let datos = await respuesta.json();
+
+        // Como devuelve un array, devuelo el primer elemento
+        return datos[0];
+      } catch (error) {
+        console.log("Error:", error.message);
+        return "";
+      }
+    }
+
+    function mostrarPais(pais) {
+
+      resultado.innerHTML = "";
+
+      // Por si no hay país.
+      if (!pais) {
+        const mensaje = document.createElement("p");
+        mensaje.textContent =
+          "No se encontró el país. Intenta con otro nombre, estos tienen que esta en inglés.";
+        resultado.appendChild(mensaje);
+        return;
+      }
+
+      const nombre = pais.name.common;
+      const capital = pais.capital;
+      const bandera = pais.flags.png;
+
+      // bandera
+      const img = document.createElement("img");
+      img.src = bandera;
+
+      // nombre
+      const h2 = document.createElement("h2");
+      h2.textContent = nombre;
+
+      // capital
+      const pCapital = document.createElement("p");
+      pCapital.textContent = `Capital: ${capital}`;
+
+      //Todo al contenedor
+      resultado.appendChild(img);
+      resultado.appendChild(h2);
+      resultado.appendChild(pCapital);
+
+    }
+
+    /*
+    Las ventajas de Async con await son diversas, por ejemplo, permite tener un código más legible que con fetch y then(), por 
+    lo tanto es más fácil de entender, se lee como código síncrono normal, de arriba a abajo. Evita los anidamientos y con ello
+    el callback hell. El manejo de errores está dentro de un solo bloque try-catch en lugar de tener diferentes catch. 
+    En general produce un código más limpio y por ende más fácil de depurar.
+    */
+  </script>
+</html>
